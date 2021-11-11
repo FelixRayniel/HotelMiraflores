@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelMiraflores.Entidades
 {
-    public class Marca
+    public class Marcas
     {
         public int MarcaId { get; set; }
         public string Descripcion { get; set; }

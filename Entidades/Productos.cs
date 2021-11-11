@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelMiraflores.Entidades
 {
-    public class Producto
+    public class Productos
     {
         public int ProductoId { get; set; }
         public string Descripcion { get; set; }

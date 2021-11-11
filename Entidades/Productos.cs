@@ -10,7 +10,7 @@ namespace HotelMiraflores.Entidades
     public class Productos
     {
         [Key]
-        public int ProductoId { get; set; }
+        public int ProductoID { get; set; }
         public string Descripcion { get; set; }
         public int Unidad { get; set; }
         public int MarcaId { get; set; }

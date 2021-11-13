@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,8 @@ namespace HotelMiraflores.Entidades
 {
     public class Productos
     {
-        [Key]
+        [Key]  
+
         public int ProductoID { get; set; }
         public string Descripcion { get; set; }
         public int Unidad { get; set; }
@@ -18,5 +20,8 @@ namespace HotelMiraflores.Entidades
         public float PrecioCosto { get; set; }
         public float PrecioVenta { get; set; }
         public int Cantidad { get; set; }
+
+        //[ForeignKey("ProyectoID")]
+        //public List<ReservacionesDetalle> Detalle { get; set; } = new List<ReservacionesDetalle>();
     }
 }

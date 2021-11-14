@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace HotelMiraflores.BLL
 {
-    public class MarcasBLL
+    public class ProductosBLL
     {
-        public static bool Guardar(Marcas marcas)
+        public static bool Guardar(Productos productos)
         {
-            if (!Existe(marcas.MarcaID))
+            if (!Existe(productos.ProductoID))
             {
-                return Insertar(marcas);
+                return Insertar(productos);
             }
             else
             {
-                return Modificar(marcas);
+                return Modificar(productos);
             }
         }
-        private static bool Insertar(Marcas marcas)
+        private static bool Insertar(Productos productos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -31,7 +31,7 @@ namespace HotelMiraflores.BLL
             try
             {
                 //Agregar la entidad que se desea insertar al contexto
-                contexto.Marcas.Add(marcas);
+                contexto.Productos.Add(productos);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -45,14 +45,14 @@ namespace HotelMiraflores.BLL
 
             return paso;
         }
-        public static bool Modificar(Marcas marcas)
+        public static bool Modificar(Productos productos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(marcas).State = EntityState.Modified;
+                contexto.Entry(productos).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -71,11 +71,11 @@ namespace HotelMiraflores.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var marcas = contexto.Marcas.Find(id);
+                var productos = contexto.Productos.Find(id);
 
-                if (marcas != null)
+                if (productos != null)
                 {
-                    contexto.Marcas.Remove(marcas);
+                    contexto.Productos.Remove(productos);
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -89,14 +89,14 @@ namespace HotelMiraflores.BLL
             }
             return paso;
         }
-        public static Marcas Buscar(int id)
+        public static Productos Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Marcas marcas;
+            Productos productos;
 
             try
             {
-                marcas = contexto.Marcas.Find(id);
+                productos = contexto.Productos.Find(id);
             }
             catch (Exception)
             {
@@ -107,15 +107,15 @@ namespace HotelMiraflores.BLL
                 contexto.Dispose();
             }
 
-            return marcas;
+            return productos;
         }
-        public static List<Marcas> GetList(Expression<Func<Marcas, bool>> criterio)
+        public static List<Productos> GetList(Expression<Func<Productos, bool>> criterio)
         {
-            List<Marcas> lista = new List<Marcas>();
+            List<Productos> lista = new List<Productos>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.Marcas.Where(criterio).ToList();
+                lista = contexto.Productos.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -133,7 +133,7 @@ namespace HotelMiraflores.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Marcas.Any(h => h.MarcaID == id);
+                encontrado = contexto.Productos.Any(h => h.ProductoID == id);
             }
             catch (Exception)
             {
@@ -145,13 +145,13 @@ namespace HotelMiraflores.BLL
             }
             return encontrado;
         }
-        public static List<Marcas> GetMarcas()
+        public static List<Productos> GetProductos()
         {
-            List<Marcas> lista = new List<Marcas>();
+            List<Productos> lista = new List<Productos>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.Marcas.ToList();
+                lista = contexto.Productos.ToList();
             }
             catch (Exception)
             {
@@ -163,6 +163,5 @@ namespace HotelMiraflores.BLL
             }
             return lista;
         }
-
     }
 }

@@ -12,9 +12,6 @@ namespace HotelMiraflores.Entidades
     {
         [Key]
         public int ReservacionID { get; set; }
-        public int HuespedID { get; set; }
-        public int TipoHabitacionID { get; set; }
-        public int HabitacionID { get; set; }
         public int CantidadPersonas { get; set; }
         public DateTime Fecha { get; set; }
         public DateTime FechaEntrada { get; set; }

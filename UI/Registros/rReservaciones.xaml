@@ -1,0 +1,159 @@
+﻿<Window x:Class="HotelMiraflores.UI.Registros.rReservaciones"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Reservaciones" Height="1167" Width="834">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Reservacion ID: "/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionID}" />
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="30"  VerticalContentAlignment="Top" Width="76">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+                            <Label Content="Buscar" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <GroupBox x:Name="InformacionHuesped" Header="Informacion del Huesped">
+
+                    <StackPanel>
+                        <Label Content="Numero de Cedula: "/>
+                        <StackPanel Orientation="Horizontal" Height="32">
+                            <TextBox x:Name="BuscarCedulaTextBox" Width="166" Height="23"  />
+                            <Button x:Name="BuscarCedulaButton" Margin="5,0" Click="BuscarButton_Click" Height="30"  VerticalContentAlignment="Top">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Resources/icons8-google-web-search-24.png" />
+                                    <Label Content="Buscar Huesped" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <Label Content="Huesped:"/>
+                        <ComboBox x:Name="HuespedComboBox" Width="384" HorizontalAlignment="Left" SelectedValue="{Binding HuespedID}"/>
+
+                        <Label Content="Cantidad de Personas: "/>
+                        <TextBox x:Name="CantidadPersonasTextBox" Text="{Binding CantidadPersonas}" Width="197" HorizontalAlignment="Left" />
+                    </StackPanel>
+
+                </GroupBox>
+
+                <Label Content="Fecha de Reservacion:"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Width="474" HorizontalAlignment="Left" />
+
+                <Label Content="Fecha de Entrada:"/>
+                <DatePicker x:Name="FechaEntradaDatePicker" SelectedDate="{Binding FechaEntrada}" Width="474" HorizontalAlignment="Left" />
+
+                <Label Content="Fecha de Salida:"/>
+                <DatePicker x:Name="FechaSalidaDatePicker" SelectedDate="{Binding FechaSalida}" Width="474" HorizontalAlignment="Left" />
+
+                <Label Content="Habitacion: "/>
+                <ComboBox x:Name="HabitacionComboBox" SelectedValue ="{Binding HabitacionID}" Width="474" HorizontalAlignment="Left" />
+
+                <Label Content="Comentarios de la Reservacion: "/>
+                <TextBox x:Name="ComentariosTextBox" Text="{Binding Comentarios}" Height="81" Width="604" HorizontalAlignment="Left" />
+
+                <GroupBox x:Name="ReservacionDetalleGroupBox" Header="Servicios Adicionales" Height="374">
+
+                    <StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Width="546" Height="63">
+
+
+
+                            <StackPanel Width="224" Height="61" VerticalAlignment="Top">
+                                <Label Content="Producto: "/>
+                                <ComboBox x:Name="TipoTareaComboBox" SelectedValue="{Binding ReservacionDetalle.ProductoID}"  />
+                            </StackPanel>
+
+                            <StackPanel Width="103" Height="56" VerticalAlignment="Top" Margin="5,0,0,0">
+                                <Label Content="Cantidad: "/>
+                                <TextBox x:Name="TiempoTextBox" Text="{Binding ReservacionDetalle.Cantidad}" Height="21"    />
+                            </StackPanel>
+                            <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123" VerticalAlignment="Bottom">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Agregar"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="225" AutoGenerateColumns="False"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Producto ID" Binding="{Binding ProductoID}" />
+                                <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
+                                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                                <DataGridTextColumn Header="Precio" Binding="{Binding Producto.Precio}" />
+                                <DataGridTextColumn Header="Total del Servicio" Binding="{Binding TotalProducto}" />
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="115" HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Eliminar"/>
+                                </StackPanel>
+                            </Button>
+
+                            <StackPanel Orientation="Horizontal" Width="259" Margin="80,0,0,0" >
+                                <Label Content=" Total en Servicios:" Height="27"/>
+                                <TextBox x:Name="TiempoTotalTextBox" Text="{Binding TotalProductos}"  Width="136" Height="26" IsReadOnly="True"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </GroupBox>
+
+                <StackPanel Orientation="Horizontal" Height="36"  >
+
+                    <Label Content=" Descuentos:" Height="24"/>
+                    <TextBox x:Name="DescuentosTextBox" Text="{Binding Descuentos}" Width="150" Height="27" />
+                    <Button x:Name="DescuentoButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Aplicar Descuento" Height="26" Width="111" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Height="35"  >
+
+                    <Label Content=" Total Hospedaje:" Height="26"/>
+                    <TextBox x:Name="TotalTextBox" Text="{Binding Total}" Width="150" Height="27" IsReadOnly="True" />
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Height="35"  >
+
+                    <Label Content=" Total General:" Height="26"/>
+                    <TextBox x:Name="TotalGeneralTextBox" Text="{Binding TotalGeneral}" Width="150" Height="27" IsReadOnly="True" />
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" Width="362" Height="39" >
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click" Width="111">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" Width="111">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click" Width="111">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-eliminar-16.png" />
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -8,10 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Folder Include="DAL\" />
->>>>>>> f67808c6a3dba1cad153ee7302eacc42038c7fe3
+    <Folder Include="BLL\" />
     <Folder Include="DATA\" />
     <Folder Include="Resources\" />
     <Folder Include="UI\Consultas\" />

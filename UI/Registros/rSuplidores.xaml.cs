@@ -55,7 +55,7 @@ namespace HotelMiraflores.UI.Registros
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Suplidores SuplidorEncontrado = SuplidoresBLL.Buscar(suplidor.SuplidorID);
+            var SuplidorEncontrado = SuplidoresBLL.Buscar(Utilidades.ToInt(SuplidorIDTextBox.Text));
 
             if (SuplidorEncontrado != null)
             {
@@ -97,7 +97,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Suplidores SuplidorEncontrado = SuplidoresBLL.Buscar(suplidor.SuplidorID);
+             var SuplidorEncontrado = SuplidoresBLL.Buscar(Utilidades.ToInt(SuplidorIDTextBox.Text));
 
             if (SuplidorEncontrado == null)
             {

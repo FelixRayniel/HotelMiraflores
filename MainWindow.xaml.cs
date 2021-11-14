@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelMiraflores.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,45 @@ namespace HotelMiraflores
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RegistroSuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rSuplidores rs = new rSuplidores();
+            rs.Show();
+        }
+
+
+        private void RegistroTipoHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void RegistroHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rHabitaciones rh = new rHabitaciones();
+
+            rh.Show();
+        }
+
+        private void RegistroMarcasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistroProductosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistroReservacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegistroHuespedesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

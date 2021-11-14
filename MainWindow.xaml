@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+         Title="Menu Principal" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <Menu Height="18">
+                <MenuItem Header="Registros">
+                    <MenuItem x:Name="RegistroHuespedesMenuItem" Header="Registro de Huespedes" Click="RegistroHuespedesMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroSuplidoresMenuItem" Header="Registro de Suplidores" Click="RegistroSuplidoresMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroMarcasMenuItem" Header="Registro de Marcas" Click="RegistroMarcasMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroProductosMenuItem" Header="Registro de Productos" Click="RegistroProductosMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroTipoHabitacionesMenuItem" Header="Registro de Tipo Habitacion" Click="RegistroTipoHabitacionesMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroHabitacionesMenuItem" Header="Registro de Habitacion" Click="RegistroHabitacionesMenuItem_Click"/>
+                    <MenuItem x:Name="RegistroReservacionesMenuItem" Header="Registro de Reservaciones" Click="RegistroReservacionesMenuItem_Click"/>
+                    
+                    
+                </MenuItem>
+                <MenuItem Header="Consultas">
+                
+                </MenuItem>
+            </Menu>
+        </StackPanel>
     </Grid>
 </Window>

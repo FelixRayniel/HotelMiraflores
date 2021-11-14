@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace HotelMiraflores.BLL
 {
-    public class MarcasBLL
+    public class TipoHabitacionesBLL
     {
-        public static bool Guardar(Marcas marcas)
+        public static bool Guardar(TipoHabitaciones tipoHabitaciones)
         {
-            if (!Existe(marcas.MarcaID))
+            if (!Existe(tipoHabitaciones.TipoHabitacionID))
             {
-                return Insertar(marcas);
+                return Insertar(tipoHabitaciones);
             }
             else
             {
-                return Modificar(marcas);
+                return Modificar(tipoHabitaciones);
             }
         }
-        private static bool Insertar(Marcas marcas)
+        private static bool Insertar(TipoHabitaciones tipoHabitaciones)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -31,7 +31,7 @@ namespace HotelMiraflores.BLL
             try
             {
                 //Agregar la entidad que se desea insertar al contexto
-                contexto.Marcas.Add(marcas);
+                contexto.TipoHabitaciones.Add(tipoHabitaciones);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -45,14 +45,14 @@ namespace HotelMiraflores.BLL
 
             return paso;
         }
-        public static bool Modificar(Marcas marcas)
+        public static bool Modificar(TipoHabitaciones tipoHabitaciones)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(marcas).State = EntityState.Modified;
+                contexto.Entry(tipoHabitaciones).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -71,11 +71,11 @@ namespace HotelMiraflores.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var marcas = contexto.Marcas.Find(id);
+                var tipoHabitaciones = contexto.TipoHabitaciones.Find(id);
 
-                if (marcas != null)
+                if (tipoHabitaciones != null)
                 {
-                    contexto.Marcas.Remove(marcas);
+                    contexto.TipoHabitaciones.Remove(tipoHabitaciones);
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -89,14 +89,14 @@ namespace HotelMiraflores.BLL
             }
             return paso;
         }
-        public static Marcas Buscar(int id)
+        public static TipoHabitaciones Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Marcas marcas;
+            TipoHabitaciones tipoHabitaciones;
 
             try
             {
-                marcas = contexto.Marcas.Find(id);
+                tipoHabitaciones = contexto.TipoHabitaciones.Find(id);
             }
             catch (Exception)
             {
@@ -107,15 +107,15 @@ namespace HotelMiraflores.BLL
                 contexto.Dispose();
             }
 
-            return marcas;
+            return tipoHabitaciones;
         }
-        public static List<Marcas> GetList(Expression<Func<Marcas, bool>> criterio)
+        public static List<TipoHabitaciones> GetList(Expression<Func<TipoHabitaciones, bool>> criterio)
         {
-            List<Marcas> lista = new List<Marcas>();
+            List<TipoHabitaciones> lista = new List<TipoHabitaciones>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.Marcas.Where(criterio).ToList();
+                lista = contexto.TipoHabitaciones.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -133,7 +133,7 @@ namespace HotelMiraflores.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Marcas.Any(h => h.MarcaID == id);
+                encontrado = contexto.TipoHabitaciones.Any(h => h.TipoHabitacionID == id);
             }
             catch (Exception)
             {
@@ -145,13 +145,13 @@ namespace HotelMiraflores.BLL
             }
             return encontrado;
         }
-        public static List<Marcas> GetMarcas()
+        public static List<TipoHabitaciones> GettipoHabitaciones()
         {
-            List<Marcas> lista = new List<Marcas>();
+            List<TipoHabitaciones> lista = new List<TipoHabitaciones>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.Marcas.ToList();
+                lista = contexto.TipoHabitaciones.ToList();
             }
             catch (Exception)
             {
@@ -163,6 +163,5 @@ namespace HotelMiraflores.BLL
             }
             return lista;
         }
-
     }
 }

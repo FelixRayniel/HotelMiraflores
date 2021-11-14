@@ -36,4 +36,10 @@
     <Resource Include="Resources\icons8-nuevo-48.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DATA\BDHotelMiraFlores.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -57,14 +57,14 @@ namespace HotelMiraflores.BLL
             return Lista;
         }
 
-        public static bool Existe(int id)
-        {
-            Contexto contexto = new Contexto();
-            bool encontrado = false;
 
+        public static List<Departamentos> GetDepartamentos()
+        {
+            List<Departamentos> lista = new List<Departamentos>();
+            Contexto contexto = new Contexto();
             try
             {
-                encontrado = contexto.Departamentos.Any(e => e.DepartamentoID == id);
+                lista = contexto.Departamentos.ToList();
             }
             catch (Exception)
             {
@@ -74,8 +74,8 @@ namespace HotelMiraflores.BLL
             {
                 contexto.Dispose();
             }
-
-            return encontrado;
+            return lista;
         }
+
     }
 }

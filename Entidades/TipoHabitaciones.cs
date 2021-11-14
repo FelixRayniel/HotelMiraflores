@@ -10,7 +10,7 @@ namespace HotelMiraflores.Entidades
     public class TipoHabitaciones
     {
         [Key]
-        public int TipoHabitacionId { get; set; }
+        public int TipoHabitacionID { get; set; }
         public string Descripcion { get; set; }
     }
 }

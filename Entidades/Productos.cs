@@ -24,5 +24,7 @@ namespace HotelMiraflores.Entidades
 
         [ForeignKey("DepartamentoID")]
         public virtual Departamentos Departamento { get; set; }
+
+
     }
 }

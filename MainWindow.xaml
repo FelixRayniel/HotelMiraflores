@@ -21,7 +21,15 @@
                     
                 </MenuItem>
                 <MenuItem Header="Consultas">
-                
+
+                    <MenuItem x:Name="ConsultaHuespedesMenuItem" Header="Consulta de Huespedes" Click="ConsultaHuespedesMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaSuplidoresMenuItem" Header="Consulta de Suplidores" Click="ConsultaSuplidoresMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaMarcasMenuItem" Header="Consulta de Marcas" Click="ConsultaMarcasMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaProductosMenuItem" Header="Consulta de Productos" Click="ConsultaProductosMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaTipoHabitacionesMenuItem" Header="Consulta de Tipo Habitacion" Click="ConsultaTipoHabitacionesMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaHabitacionesMenuItem" Header="Consulta de Habitacion" Click="ConsultaHabitacionesMenuItem_Click"/>
+                    <MenuItem x:Name="ConsultaReservacionesMenuItem" Header="Consulta de Reservaciones" Click="ConsultaReservacionesMenuItem_Click"/>
+                    
                 </MenuItem>
             </Menu>
         </StackPanel>

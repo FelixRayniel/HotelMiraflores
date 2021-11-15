@@ -13,12 +13,12 @@
     <None Remove="Resources\icons8-google-web-search-24.png" />
     <None Remove="Resources\icons8-guardar-48.png" />
     <None Remove="Resources\icons8-nuevo-48.png" />
+    <None Remove="Resources\zoom1.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="DAL\" />
     <Folder Include="DATA\" />
-    <Folder Include="UI\Consultas\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +34,7 @@
     <Resource Include="Resources\icons8-google-web-search-24.png" />
     <Resource Include="Resources\icons8-guardar-48.png" />
     <Resource Include="Resources\icons8-nuevo-48.png" />
+    <Resource Include="Resources\zoom1.png" />
   </ItemGroup>
 
   <ItemGroup>

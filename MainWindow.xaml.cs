@@ -1,4 +1,5 @@
-﻿using HotelMiraflores.UI.Registros;
+﻿using HotelMiraflores.UI.Consultas;
+using HotelMiraflores.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,44 @@ namespace HotelMiraflores
         {
             rHuespedes rh = new rHuespedes();
             rh.Show();
+        }
+
+        private void ConsultaHuespedesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaSuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cSuplidores cs = new cSuplidores();
+            cs.Show();
+        }
+
+        private void ConsultaMarcasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaProductosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaTipoHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cHabitaciones ch = new cHabitaciones();
+
+            ch.Show();
+        }
+
+        private void ConsultaReservacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

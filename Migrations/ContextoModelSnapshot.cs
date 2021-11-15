@@ -51,6 +51,9 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Disponibilidad")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Numero")
                         .HasColumnType("TEXT");
 
@@ -149,6 +152,9 @@ namespace HotelMiraflores.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CantidadDias")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("CantidadPersonas")
                         .HasColumnType("INTEGER");
 
@@ -173,16 +179,13 @@ namespace HotelMiraflores.Migrations
                     b.Property<int?>("HuespedID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("ITBIS")
-                        .HasColumnType("REAL");
-
-                    b.Property<int?>("TipoHabitacionID")
-                        .HasColumnType("INTEGER");
-
                     b.Property<float>("Total")
                         .HasColumnType("REAL");
 
                     b.Property<float>("TotalGeneral")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("TotalProductos")
                         .HasColumnType("REAL");
 
                     b.HasKey("ReservacionID");
@@ -191,9 +194,37 @@ namespace HotelMiraflores.Migrations
 
                     b.HasIndex("HuespedID");
 
-                    b.HasIndex("TipoHabitacionID");
-
                     b.ToTable("Reservaciones");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Precio")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProductoID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ReservacionID")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("TotalProducto")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductoID");
+
+                    b.HasIndex("ReservacionID");
+
+                    b.ToTable("ReservacionesDetalle");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Suplidores", b =>
@@ -264,15 +295,29 @@ namespace HotelMiraflores.Migrations
                         .WithMany()
                         .HasForeignKey("HuespedID");
 
-                    b.HasOne("HotelMiraflores.Entidades.TipoHabitaciones", "TipoHabitacion")
-                        .WithMany()
-                        .HasForeignKey("TipoHabitacionID");
-
                     b.Navigation("Habitacion");
 
                     b.Navigation("Huesped");
+                });
 
-                    b.Navigation("TipoHabitacion");
+            modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>
+                {
+                    b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelMiraflores.Entidades.Reservaciones", null)
+                        .WithMany("ReservacionDetalle")
+                        .HasForeignKey("ReservacionID");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.Reservaciones", b =>
+                {
+                    b.Navigation("ReservacionDetalle");
                 });
 #pragma warning restore 612, 618
         }

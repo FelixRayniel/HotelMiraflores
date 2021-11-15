@@ -35,7 +35,8 @@ namespace HotelMiraflores
 
         private void RegistroTipoHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            
+            rTipoHabitaciones th = new rTipoHabitaciones();
+            th.Show();
         }
 
         private void RegistroHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
@@ -47,7 +48,8 @@ namespace HotelMiraflores
 
         private void RegistroMarcasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rMarcas rm = new rMarcas();
+            rm.Show();
         }
 
         private void RegistroProductosMenuItem_Click(object sender, RoutedEventArgs e)
@@ -57,12 +59,14 @@ namespace HotelMiraflores
 
         private void RegistroReservacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rReservaciones rs = new rReservaciones();
+            rs.Show();
         }
 
         private void RegistroHuespedesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rHuespedes rh = new rHuespedes();
+            rh.Show();
         }
     }
 }

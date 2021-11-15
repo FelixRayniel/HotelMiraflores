@@ -14,9 +14,9 @@ namespace HotelMiraflores.Entidades
         public int ReservacionID { get; set; }
         public int HuespedID { get; set; }
         public int CantidadPersonas { get; set; }
-        public DateTime Fecha { get; set; }
-        public DateTime FechaEntrada { get; set; }
-        public DateTime FechaSalida { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public DateTime FechaEntrada { get; set; } = DateTime.Now;
+        public DateTime FechaSalida { get; set; } = DateTime.Now;
         public int CantidadDias { get; set; }
         public int HabitacionID { get; set; }
         public float Descuentos { get; set; }
@@ -27,8 +27,6 @@ namespace HotelMiraflores.Entidades
 
         [ForeignKey("ReservacionID")]
         public List<ReservacionesDetalle> ReservacionDetalle { get; set; } = new List<ReservacionesDetalle>();
-
-
 
     }
 }

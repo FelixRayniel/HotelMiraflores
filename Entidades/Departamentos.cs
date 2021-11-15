@@ -14,4 +14,5 @@ namespace HotelMiraflores.Entidades
         public string Descripcion { get; set; }
 
     }
+
 }

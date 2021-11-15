@@ -54,7 +54,8 @@ namespace HotelMiraflores
 
         private void RegistroProductosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rProductos rp = new rProductos();
+            rp.Show();
         }
 
         private void RegistroReservacionesMenuItem_Click(object sender, RoutedEventArgs e)

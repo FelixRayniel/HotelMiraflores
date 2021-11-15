@@ -87,6 +87,30 @@ namespace HotelMiraflores.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Reservaciones",
+                columns: table => new
+                {
+                    ReservacionID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    HuespedID = table.Column<int>(type: "INTEGER", nullable: false),
+                    CantidadPersonas = table.Column<int>(type: "INTEGER", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    FechaEntrada = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    FechaSalida = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CantidadDias = table.Column<int>(type: "INTEGER", nullable: false),
+                    HabitacionID = table.Column<int>(type: "INTEGER", nullable: false),
+                    Descuentos = table.Column<float>(type: "REAL", nullable: false),
+                    Total = table.Column<float>(type: "REAL", nullable: false),
+                    TotalProductos = table.Column<float>(type: "REAL", nullable: false),
+                    TotalGeneral = table.Column<float>(type: "REAL", nullable: false),
+                    Comentarios = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservaciones", x => x.ReservacionID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Suplidores",
                 columns: table => new
                 {
@@ -112,42 +136,6 @@ namespace HotelMiraflores.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TipoHabitaciones", x => x.TipoHabitacionID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reservaciones",
-                columns: table => new
-                {
-                    ReservacionID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    CantidadPersonas = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    FechaEntrada = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    FechaSalida = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CantidadDias = table.Column<int>(type: "INTEGER", nullable: false),
-                    Descuentos = table.Column<float>(type: "REAL", nullable: false),
-                    Total = table.Column<float>(type: "REAL", nullable: false),
-                    TotalProductos = table.Column<float>(type: "REAL", nullable: false),
-                    TotalGeneral = table.Column<float>(type: "REAL", nullable: false),
-                    Comentarios = table.Column<string>(type: "TEXT", nullable: true),
-                    HuespedID = table.Column<int>(type: "INTEGER", nullable: true),
-                    HabitacionID = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reservaciones", x => x.ReservacionID);
-                    table.ForeignKey(
-                        name: "FK_Reservaciones_Huespedes_HuespedID",
-                        column: x => x.HuespedID,
-                        principalTable: "Huespedes",
-                        principalColumn: "HuespedID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Reservaciones_TipoHabitaciones_HabitacionID",
-                        column: x => x.HabitacionID,
-                        principalTable: "TipoHabitaciones",
-                        principalColumn: "TipoHabitacionID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -190,16 +178,6 @@ namespace HotelMiraflores.Migrations
                 values: new object[] { 2, "Bar" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservaciones_HabitacionID",
-                table: "Reservaciones",
-                column: "HabitacionID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reservaciones_HuespedID",
-                table: "Reservaciones",
-                column: "HuespedID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ReservacionesDetalle_ProductoID",
                 table: "ReservacionesDetalle",
                 column: "ProductoID");
@@ -219,6 +197,9 @@ namespace HotelMiraflores.Migrations
                 name: "Habitaciones");
 
             migrationBuilder.DropTable(
+                name: "Huespedes");
+
+            migrationBuilder.DropTable(
                 name: "Marcas");
 
             migrationBuilder.DropTable(
@@ -228,16 +209,13 @@ namespace HotelMiraflores.Migrations
                 name: "Suplidores");
 
             migrationBuilder.DropTable(
+                name: "TipoHabitaciones");
+
+            migrationBuilder.DropTable(
                 name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Reservaciones");
-
-            migrationBuilder.DropTable(
-                name: "Huespedes");
-
-            migrationBuilder.DropTable(
-                name: "TipoHabitaciones");
         }
     }
 }

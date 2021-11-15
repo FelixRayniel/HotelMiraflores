@@ -167,10 +167,10 @@ namespace HotelMiraflores.Migrations
                     b.Property<DateTime>("FechaSalida")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("HabitacionID")
+                    b.Property<int>("HabitacionID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("HuespedID")
+                    b.Property<int>("HuespedID")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Total")
@@ -183,10 +183,6 @@ namespace HotelMiraflores.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("ReservacionID");
-
-                    b.HasIndex("HabitacionID");
-
-                    b.HasIndex("HuespedID");
 
                     b.ToTable("Reservaciones");
                 });
@@ -253,21 +249,6 @@ namespace HotelMiraflores.Migrations
                     b.HasKey("TipoHabitacionID");
 
                     b.ToTable("TipoHabitaciones");
-                });
-
-            modelBuilder.Entity("HotelMiraflores.Entidades.Reservaciones", b =>
-                {
-                    b.HasOne("HotelMiraflores.Entidades.TipoHabitaciones", "Habitacion")
-                        .WithMany()
-                        .HasForeignKey("HabitacionID");
-
-                    b.HasOne("HotelMiraflores.Entidades.Huespedes", "Huesped")
-                        .WithMany()
-                        .HasForeignKey("HuespedID");
-
-                    b.Navigation("Habitacion");
-
-                    b.Navigation("Huesped");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>

@@ -1,4 +1,5 @@
-﻿using HotelMiraflores.UI.Registros;
+﻿using HotelMiraflores.UI.Consultas;
+using HotelMiraflores.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,11 @@ namespace HotelMiraflores
         {
             rHuespedes rh = new rHuespedes();
             rh.Show();
+        }
+
+        private void cHuespedesItem_Click(object sender, RoutedEventArgs e)
+        {
+            new cHuespedes().Show();
         }
     }
 }

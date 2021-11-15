@@ -109,6 +109,29 @@ namespace HotelMiraflores.BLL
 
             return huespedes;
         }
+
+        public static Huespedes BuscarCedula(string cedula)
+        {
+
+            Contexto contexto = new Contexto();
+            Huespedes huespedes;
+
+            try
+            {
+                huespedes = contexto.Huespedes.Where(x => x.Cedula == cedula).SingleOrDefault();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return huespedes;
+        }
+
         public static List<Huespedes> GetList(Expression<Func<Huespedes, bool>> criterio)
         {
             List<Huespedes> lista = new List<Huespedes>();

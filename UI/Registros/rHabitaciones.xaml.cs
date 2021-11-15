@@ -26,6 +26,8 @@ namespace HotelMiraflores.UI.Registros
         {
             InitializeComponent();
             this.DataContext = null;
+            Limpiar();
+
             TipoHabitacionComboBox.ItemsSource = TipoHabitacionesBLL.GettipoHabitaciones();
             TipoHabitacionComboBox.SelectedValuePath = "TipoHabitacionID";
             TipoHabitacionComboBox.DisplayMemberPath = "Descripcion";

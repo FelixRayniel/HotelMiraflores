@@ -54,7 +54,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Marcas MarcaEncontrada = MarcasBLL.Buscar(marcas.MarcaID);
+            var MarcaEncontrada = MarcasBLL.Buscar(Utilidades.ToInt(MarcasIDTextBox.Text));
 
             if (MarcaEncontrada != null)
             {
@@ -94,7 +94,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Marcas MarcaEncontrada = MarcasBLL.Buscar(marcas.MarcaID);
+            var MarcaEncontrada = MarcasBLL.Buscar(Utilidades.ToInt(MarcasIDTextBox.Text));
 
             if (MarcaEncontrada == null)
             {
@@ -103,7 +103,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                HabitacionesBLL.Eliminar(marcas.MarcaID);
+                HabitacionesBLL.Eliminar(Utilidades.ToInt(MarcasIDTextBox.Text));
                 MessageBox.Show("MARCA ELIMINADA", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

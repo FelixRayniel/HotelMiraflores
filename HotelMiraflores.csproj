@@ -38,7 +38,7 @@
 
   <ItemGroup>
     <None Update="DATA\BDHotelMiraFlores.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

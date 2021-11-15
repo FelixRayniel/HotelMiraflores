@@ -22,7 +22,7 @@
 
 
                 <Label Content="Tipo Habitacion: "/>
-                <ComboBox x:Name="TipoHabitacionComboBox"  />
+                <ComboBox x:Name="TipoHabitacionComboBox" SelectedValue="{Binding TipoHabitacionID}" />
 
                 <Label Content="Numero de Habitacion: "/>
                 <TextBox x:Name="NumeroTextBox" Text="{Binding Numero}" />
@@ -35,7 +35,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Esta Ocupada? "/>
-                    <CheckBox Checked="{Binding Desponibilidad}" Height="14" />
+                    <CheckBox IsChecked="{Binding Disponibilidad}" Height="14" />
                 </StackPanel>
 
             </StackPanel>

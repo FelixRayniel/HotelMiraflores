@@ -26,6 +26,7 @@ namespace HotelMiraflores.UI.Registros
         {
             InitializeComponent();
             this.DataContext = null;
+            Limpiar();
 
             MarcasComboBox.ItemsSource = MarcasBLL.GetMarcas();
             MarcasComboBox.SelectedValuePath = "MarcaID";
@@ -34,6 +35,10 @@ namespace HotelMiraflores.UI.Registros
             DepartamentoComboBox.ItemsSource = DepartamentosBLL.GetDepartamentos();
             DepartamentoComboBox.SelectedValuePath = "DepartamentoID";
             DepartamentoComboBox.DisplayMemberPath = "Descripcion";
+
+            SuplidorComboBox.ItemsSource = SuplidoresBLL.GetSuplidores();
+            SuplidorComboBox.SelectedValuePath = "SuplidorID";
+            SuplidorComboBox.DisplayMemberPath = "Nombre";
         }
         private void Limpiar()
         {

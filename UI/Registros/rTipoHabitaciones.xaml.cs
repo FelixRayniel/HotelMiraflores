@@ -26,6 +26,7 @@ namespace HotelMiraflores.UI.Registros
         {
             InitializeComponent();
             this.DataContext = null;
+            Limpiar();
         }
         private void Limpiar()
         {

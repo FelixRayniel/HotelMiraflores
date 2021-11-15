@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registros de Productos" Height="460" Width="420">
-    <Grid>
+        Title="Registros de Productos" Height="530" Width="484">
+    <Grid Margin="0,0,0,-6">
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Producto ID: "/>
@@ -22,29 +22,33 @@
 
 
                 <Label Content="Nombre del producto: "/>
-                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" />
+                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="21" Width="292" HorizontalAlignment="Left" />
+
+                <Label Content="Suplidor: "/>
+                <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorID}" Width="215" HorizontalAlignment="Left" />
 
                 <Label Content="Marca: "/>
-                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaID}" />
+                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaID}" Width="226" HorizontalAlignment="Left" />
 
                 <Label Content="Departamento: "/>
-                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoID}" />
+                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoID}" Width="226" HorizontalAlignment="Left" />
 
                 <Label Content="Unidad: "/>
-                <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" />
+                <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" Height="20" Width="150" HorizontalAlignment="Left" />
 
+                
                 <Label Content="Precio de Costo: "/>
-                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" />
+                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="20" Width="151"  HorizontalAlignment="Left" />
 
                 <Label Content="Precio de venta: "/>
-                <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" />
-
-                <Label Content="Cantidad: "/>
-                <TextBox x:Name="CantidadDisponibleTextBox" Text="{Binding CantidadDisponible}" />
+                <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" Height="24" Width="149" HorizontalAlignment="Left" />
                 
+                <Label Content="Cantidad: "/>
+                <TextBox x:Name="CantidadDisponibleTextBox" Text="{Binding CantidadDisponible}" Height="27" Width="162" HorizontalAlignment="Left" />
+
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

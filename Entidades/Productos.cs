@@ -14,6 +14,7 @@ namespace HotelMiraflores.Entidades
 
         public int ProductoID { get; set; }
         public string Descripcion { get; set; }
+        public int SuplidorID { get; set; }
         public int MarcaID { get; set; }
         public int DepartamentoID { get; set; }
         public int Unidad { get; set; }

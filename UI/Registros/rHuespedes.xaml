@@ -22,7 +22,7 @@
 
 
                 <Label Content="Nombre: "/>
-                <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" />
+                <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" />
 
                 <Label Content="Numero de Cedula: "/>
                 <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" />

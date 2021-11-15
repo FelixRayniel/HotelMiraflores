@@ -17,26 +17,26 @@ using System.Windows.Shapes;
 namespace HotelMiraflores.UI.Registros
 {
     /// <summary>
-    /// Lógica de interacción para rTipoHabitaciones.xaml
+    /// Lógica de interacción para rProductos.xaml
     /// </summary>
-    public partial class rTipoHabitaciones : Window
+    public partial class rProductos : Window
     {
-        private TipoHabitaciones tipoHabitaciones = new TipoHabitaciones();
-        public rTipoHabitaciones()
+        private Productos producto = new Productos();
+        public rProductos()
         {
             InitializeComponent();
             this.DataContext = null;
         }
         private void Limpiar()
         {
-            this.tipoHabitaciones = new TipoHabitaciones();
-            this.DataContext = tipoHabitaciones;
+            this.producto = new Productos();
+            this.DataContext = producto;
         }
 
         public void Cargar()
         {
             this.DataContext = null;
-            this.DataContext = tipoHabitaciones;
+            this.DataContext = producto;
         }
         private bool Validar()
         {
@@ -53,11 +53,11 @@ namespace HotelMiraflores.UI.Registros
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionID);
+            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoID);
 
-            if (TipoHabitacionEncontrada != null)
+            if (ProductosEncontrados != null)
             {
-                tipoHabitaciones = TipoHabitacionEncontrada;
+                producto = ProductosEncontrados;
                 Cargar();
             }
             else
@@ -66,7 +66,6 @@ namespace HotelMiraflores.UI.Registros
                 MessageBox.Show("NO SE PUDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
@@ -78,32 +77,32 @@ namespace HotelMiraflores.UI.Registros
             {
                 return;
             }
-            var paso = TipoHabitacionesBLL.Guardar(tipoHabitaciones); ;
+            var paso = ProductosBLL.Guardar(producto); ;
 
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("SE HA GUARDADO EL TIPO DE HABITACIONES EXISTOSAMENTE", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("SE HA GUARDADO EL PRODUCTO EXISTOSAMENTE", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("NO SE PUDO GUARDAR EL TIPO DE HABITACIONES", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("NO SE PUDO GUARDAR EL PRODUCTO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionID);
+            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoID);
 
-            if (TipoHabitacionEncontrada == null)
+            if (ProductosEncontrados == null)
             {
                 MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             else
             {
-                TipoHabitacionesBLL.Eliminar(tipoHabitaciones.TipoHabitacionID);
-                MessageBox.Show("TIPO HABITACION ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                ProductosBLL.Eliminar(producto.ProductoID);
+                MessageBox.Show("PRODUCTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
         }

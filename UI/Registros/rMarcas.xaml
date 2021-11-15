@@ -9,9 +9,9 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
-                <Label Content="Marcas ID: "/>
+                <Label Content="Marca ID: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="MarcasIDTextBox" Width="87" Height="23" Text="{Binding MarcasID}" />
+                    <TextBox x:Name="MarcasIDTextBox" Width="87" Height="23" Text="{Binding MarcaID}" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />

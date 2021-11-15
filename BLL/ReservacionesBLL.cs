@@ -48,39 +48,38 @@ namespace HotelMiraflores.BLL
             }
             private static bool Modificar(Reservaciones Reservacion)
             {
-                bool paso = false;
-                Contexto contexto = new Contexto();
+            bool paso = false;
+            Contexto contexto = new Contexto();
 
-                try
+            try
+            {
+                var ProyectoAnterior = contexto.Reservaciones
+                    .Where(x => x.ReservacionID == Reservacion.ReservacionID)
+                    .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
+                    .AsNoTracking()
+                    .SingleOrDefault();
+
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where ID={Reservacion.ReservacionID}");
+
+                foreach (var detalle in ProyectoAnterior.ReservacionDetalle)
                 {
+                    contexto.Entry(detalle.Producto).State = EntityState.Modified;
 
-                    var ProductoAnterior = contexto.Reservaciones
-                        .Where(x => x.ReservacionID == Reservacion.ReservacionID)
-                        .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
-                        .AsNoTracking()
-                        .SingleOrDefault();
-
-                    contexto.Database.ExecuteSqlRaw($"Delete FROM TareasDetalle Where ID={Reservacion.ReservacionID}");
-
-                    foreach (var detalle in ProductoAnterior.ReservacionDetalle)
-                    {
-                        contexto.Entry(detalle.Producto).State = EntityState.Modified;
-
-                    }
-
-                    contexto.Entry(Reservacion).State = EntityState.Modified;
-                    paso = contexto.SaveChanges() > 0;
                 }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    contexto.Dispose();
-                }
-                return paso;
+
+                contexto.Entry(Reservacion).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
             public static bool Eliminar(int id)
             {
                 bool paso = false;

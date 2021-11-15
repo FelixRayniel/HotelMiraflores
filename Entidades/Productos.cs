@@ -17,7 +17,7 @@ namespace HotelMiraflores.Entidades
         public int Unidad { get; set; }
         public float PrecioCosto { get; set; }
         public float PrecioVenta { get; set; }
-        public int Cantidad { get; set; }
+        public int CantidadDisponible { get; set; }
 
         [ForeignKey("MarcaID")]
         public virtual Marcas Marca { get; set; }

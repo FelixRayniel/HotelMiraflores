@@ -12,14 +12,10 @@ namespace HotelMiraflores.Entidades
     {
         [Key]
         public int HabitacionID { get; set; }
+        public int TipoHabitacionID {get; set;}
         public string Numero { get; set; }
         public float Precio { get; set; }
         public string Descripcion { get; set; }
         public bool Disponibilidad { get; set; }
-
-        [ForeignKey("TipoHabitacionID")]
-        public virtual TipoHabitaciones TipoHabitacion { get; set; }
-
-
     }
 }

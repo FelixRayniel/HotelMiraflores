@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211115021945_Inicial")]
+    [Migration("20211115024445_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,16 +116,16 @@ namespace HotelMiraflores.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Cantidad")
+                    b.Property<int>("CantidadDisponible")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("DepartamentoID")
+                    b.Property<int>("DepartamentoID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("MarcaID")
+                    b.Property<int>("MarcaID")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("PrecioCosto")
@@ -138,10 +138,6 @@ namespace HotelMiraflores.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ProductoID");
-
-                    b.HasIndex("DepartamentoID");
-
-                    b.HasIndex("MarcaID");
 
                     b.ToTable("Productos");
                 });
@@ -259,21 +255,6 @@ namespace HotelMiraflores.Migrations
                     b.HasKey("TipoHabitacionID");
 
                     b.ToTable("TipoHabitaciones");
-                });
-
-            modelBuilder.Entity("HotelMiraflores.Entidades.Productos", b =>
-                {
-                    b.HasOne("HotelMiraflores.Entidades.Departamentos", "Departamento")
-                        .WithMany()
-                        .HasForeignKey("DepartamentoID");
-
-                    b.HasOne("HotelMiraflores.Entidades.Marcas", "Marca")
-                        .WithMany()
-                        .HasForeignKey("MarcaID");
-
-                    b.Navigation("Departamento");
-
-                    b.Navigation("Marca");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Reservaciones", b =>

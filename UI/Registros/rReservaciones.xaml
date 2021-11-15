@@ -88,7 +88,7 @@
                                     <DataGridTextColumn Header="Producto ID" Binding="{Binding ProductoID}" />
                                     <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
                                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
-                                    <DataGridTextColumn Header="Precio" Binding="{Binding Producto.Precio}" />
+                                    <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" />
                                     <DataGridTextColumn Header="Total del Servicio" Binding="{Binding TotalProducto}" />
                                 </DataGrid.Columns>
 

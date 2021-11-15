@@ -33,6 +33,13 @@ namespace HotelMiraflores.UI.Registros
             HabitacionComboBox.ItemsSource = HabitacionesBLL.GetHabitaciones();
             HabitacionComboBox.SelectedValuePath = "HabitacionID";
             HabitacionComboBox.DisplayMemberPath = "Numero";
+
+            ProductosComboBox.ItemsSource = ProductosBLL.GetProductos();
+            ProductosComboBox.SelectedValuePath = "ProductoID";
+            ProductosComboBox.DisplayMemberPath = "Descripcion";
+
+
+
         }
 
         public void Limpiar()
@@ -158,7 +165,16 @@ namespace HotelMiraflores.UI.Registros
 
         private void BuscarCedulaButton_Click(object sender, RoutedEventArgs e)
         {
+            var HuespedEncontrado = HuespedesBLL.BuscarCedula(BuscarCedulaTextBox.Text);
 
+            if (HuespedEncontrado != null)
+            {
+                HuespedComboBox.SelectedValue = HuespedEncontrado.HuespedID;
+            }
+            else
+            {
+                MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void DescuentoButton_Click(object sender, RoutedEventArgs e)

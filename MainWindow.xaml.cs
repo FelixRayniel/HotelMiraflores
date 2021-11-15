@@ -75,5 +75,10 @@ namespace HotelMiraflores
         {
             new cHuespedes().Show();
         }
+
+        private void cMarcasItem_Click(object sender, RoutedEventArgs e)
+        {
+            new cMarcas().Show();
+        }
     }
 }

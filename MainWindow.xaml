@@ -22,6 +22,7 @@
                 </MenuItem>
                 <MenuItem Header="Consultas">
                     <MenuItem x:Name="cHuespedesItem" Header="Consulta de Huespedes" Click="cHuespedesItem_Click"/>
+                    <MenuItem x:Name="cMarcasItem" Header="Consulta de Marcas" Click="cMarcasItem_Click"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

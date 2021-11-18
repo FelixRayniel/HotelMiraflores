@@ -29,7 +29,7 @@ namespace HotelMiraflores.UI.Registros
             Limpiar();
 
             MarcasComboBox.ItemsSource = MarcasBLL.GetMarcas();
-            MarcasComboBox.SelectedValuePath = "MarcaID";
+            MarcasComboBox.SelectedValuePath = "MarcaId";
             MarcasComboBox.DisplayMemberPath = "Descripcion";
 
             DepartamentoComboBox.ItemsSource = DepartamentosBLL.GetDepartamentos();
@@ -66,7 +66,7 @@ namespace HotelMiraflores.UI.Registros
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoID);
+            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoId);
 
             if (ProductosEncontrados != null)
             {
@@ -105,7 +105,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoID);
+            Productos ProductosEncontrados = ProductosBLL.Buscar(producto.ProductoId);
 
             if (ProductosEncontrados == null)
             {
@@ -114,7 +114,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                ProductosBLL.Eliminar(producto.ProductoID);
+                ProductosBLL.Eliminar(producto.ProductoId);
                 MessageBox.Show("PRODUCTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

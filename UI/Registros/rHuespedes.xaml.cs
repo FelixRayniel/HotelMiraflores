@@ -102,7 +102,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                HuespedesBLL.Eliminar(huespedes.HuespedID);
+                HuespedesBLL.Eliminar(huespedes.HuespedId);
                 MessageBox.Show("HUESPED ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

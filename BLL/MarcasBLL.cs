@@ -14,7 +14,7 @@ namespace HotelMiraflores.BLL
     {
         public static bool Guardar(Marcas marcas)
         {
-            if (!Existe(marcas.MarcaID))
+            if (!Existe(marcas.MarcaId))
             {
                 return Insertar(marcas);
             }
@@ -133,7 +133,7 @@ namespace HotelMiraflores.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Marcas.Any(h => h.MarcaID == id);
+                encontrado = contexto.Marcas.Any(h => h.MarcaId == id);
             }
             catch (Exception)
             {

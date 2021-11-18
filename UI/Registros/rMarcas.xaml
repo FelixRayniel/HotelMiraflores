@@ -11,7 +11,7 @@
             <StackPanel Orientation="Vertical">
                 <Label Content="Marca ID: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="MarcasIDTextBox" Width="87" Height="23" Text="{Binding MarcaID}" />
+                    <TextBox x:Name="MarcasIdTextBox" Width="87" Height="23" Text="{Binding MarcaId}" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />

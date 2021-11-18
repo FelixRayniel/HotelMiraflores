@@ -54,7 +54,7 @@ namespace HotelMiraflores.UI.Registros
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionID);
+            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionId);
 
             if (TipoHabitacionEncontrada != null)
             {
@@ -94,7 +94,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionID);
+            TipoHabitaciones TipoHabitacionEncontrada = TipoHabitacionesBLL.Buscar(tipoHabitaciones.TipoHabitacionId);
 
             if (TipoHabitacionEncontrada == null)
             {
@@ -103,7 +103,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                TipoHabitacionesBLL.Eliminar(tipoHabitaciones.TipoHabitacionID);
+                TipoHabitacionesBLL.Eliminar(tipoHabitaciones.TipoHabitacionId);
                 MessageBox.Show("TIPO HABITACION ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

@@ -42,7 +42,7 @@ namespace HotelMiraflores.UI.Consultas
                         listado = HuespedesBLL.GetList(p => p.Cedula.ToLower().Contains(criterio.ToLower()));
                         break;
                     case 2:
-                        listado = HuespedesBLL.GetList(p => p.HuespedID == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = HuespedesBLL.GetList(p => p.HuespedId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                 }
             }

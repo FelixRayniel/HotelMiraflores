@@ -10,7 +10,7 @@ namespace HotelMiraflores.Entidades
     public class Huespedes
     {
         [Key]
-        public int HuespedID { get; set; }
+        public int HuespedId { get; set; }
         public string Nombres { get; set; }
         public string Cedula { get; set; }
         public string Email { get; set; }

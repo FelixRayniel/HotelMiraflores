@@ -35,7 +35,7 @@
             <StackPanel HorizontalAlignment="Left">
                 <DataGrid x:Name="DatosDataGrid" Height="240" Width="527" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Marcas}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Marca ID" Binding="{Binding MarcaID}" />
+                        <DataGridTextColumn Header="Marca ID" Binding="{Binding MarcaId}" />
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
                     </DataGrid.Columns>
                 </DataGrid>

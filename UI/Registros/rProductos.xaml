@@ -11,7 +11,7 @@
             <StackPanel Orientation="Vertical">
                 <Label Content="Producto ID: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="ProductoIDTextBox" Width="87" Height="23" Text="{Binding ProductoID}" />
+                    <TextBox x:Name="ProductoIdTextBox" Width="87" Height="23" Text="{Binding ProductoId}" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -28,7 +28,7 @@
                 <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorID}" Width="215" HorizontalAlignment="Left" />
 
                 <Label Content="Marca: "/>
-                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaID}" Width="226" HorizontalAlignment="Left" />
+                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaId}" Width="226" HorizontalAlignment="Left" />
 
                 <Label Content="Departamento: "/>
                 <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoID}" Width="226" HorizontalAlignment="Left" />

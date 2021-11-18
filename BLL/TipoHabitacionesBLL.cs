@@ -14,7 +14,7 @@ namespace HotelMiraflores.BLL
     {
         public static bool Guardar(TipoHabitaciones tipoHabitaciones)
         {
-            if (!Existe(tipoHabitaciones.TipoHabitacionID))
+            if (!Existe(tipoHabitaciones.TipoHabitacionId))
             {
                 return Insertar(tipoHabitaciones);
             }
@@ -133,7 +133,7 @@ namespace HotelMiraflores.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.TipoHabitaciones.Any(h => h.TipoHabitacionID == id);
+                encontrado = contexto.TipoHabitaciones.Any(h => h.TipoHabitacionId == id);
             }
             catch (Exception)
             {

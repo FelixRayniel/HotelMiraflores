@@ -74,6 +74,7 @@ namespace HotelMiraflores.Migrations
                     ProductoID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    SuplidorID = table.Column<int>(type: "INTEGER", nullable: false),
                     MarcaID = table.Column<int>(type: "INTEGER", nullable: false),
                     DepartamentoID = table.Column<int>(type: "INTEGER", nullable: false),
                     Unidad = table.Column<int>(type: "INTEGER", nullable: false),
@@ -147,7 +148,6 @@ namespace HotelMiraflores.Migrations
                     ProductoID = table.Column<int>(type: "INTEGER", nullable: false),
                     Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
                     Precio = table.Column<float>(type: "REAL", nullable: false),
-                    TotalProducto = table.Column<float>(type: "REAL", nullable: false),
                     ReservacionID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>

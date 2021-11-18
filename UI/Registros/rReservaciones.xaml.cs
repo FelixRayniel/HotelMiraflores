@@ -25,17 +25,18 @@ namespace HotelMiraflores.UI.Registros
         public rReservaciones()
         {
             InitializeComponent();
-            this.DataContext = null;
+            Limpiar();
+
             HuespedComboBox.ItemsSource = HuespedesBLL.GetHuespedes();
-            HuespedComboBox.SelectedValuePath = "HuespedID";
+            HuespedComboBox.SelectedValuePath = "HuespedId";
             HuespedComboBox.DisplayMemberPath = "Nombres";
 
             HabitacionComboBox.ItemsSource = HabitacionesBLL.GetHabitaciones();
-            HabitacionComboBox.SelectedValuePath = "HabitacionID";
+            HabitacionComboBox.SelectedValuePath = "HabitacionId";
             HabitacionComboBox.DisplayMemberPath = "Numero";
 
             ProductosComboBox.ItemsSource = ProductosBLL.GetProductos();
-            ProductosComboBox.SelectedValuePath = "ProductoID";
+            ProductosComboBox.SelectedValuePath = "ProductoId";
             ProductosComboBox.DisplayMemberPath = "Descripcion";
 
 
@@ -46,17 +47,19 @@ namespace HotelMiraflores.UI.Registros
         {
             this.Reservacion = new Reservaciones();
             this.DataContext = Reservacion;
+            BuscarCedulaTextBox.Text = null;
         }
 
         public void Cargar()
         {
             this.DataContext = null;
             this.DataContext = Reservacion;
+            
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionID);
+            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionId);
 
             if (ReservaEncontrada != null)
             {
@@ -74,12 +77,18 @@ namespace HotelMiraflores.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            
+
             Reservacion.ReservacionDetalle.Add(new ReservacionesDetalle(
                 (int)ProductosComboBox.SelectedValue, int.Parse(CantidadTextBox.Text),
-                GetPrecioProducto((int)ProductosComboBox.SelectedValue), (float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue)), 
+                GetPrecioProducto((int)ProductosComboBox.SelectedValue), 
                 (Productos)ProductosComboBox.SelectedItem
 
                 ));
+
+            Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
+
+
 
             Cargar();
         }
@@ -89,6 +98,8 @@ namespace HotelMiraflores.UI.Registros
             if (DetalleDataGrid.Items.Count >= 1 &&
                 DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
+                ReservacionesDetalle T = (ReservacionesDetalle)DetalleDataGrid.SelectedValue;
+                Reservacion.TotalProductos-= T.TotalProducto;
                 Reservacion.ReservacionDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -120,7 +131,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionID);
+            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionId);
 
             if (ReservaEncontrada == null)
             {
@@ -129,7 +140,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                ReservacionesBLL.Eliminar(Reservacion.ReservacionID);
+                ReservacionesBLL.Eliminar(Reservacion.ReservacionId);
                 MessageBox.Show("PROYECTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
@@ -163,6 +174,18 @@ namespace HotelMiraflores.UI.Registros
             return 0;
         }
 
+        public float GetPrecioHabitacion(int id)
+        {
+            Habitaciones habitacion = HabitacionesBLL.Buscar(id);
+
+            if (habitacion != null)
+            {
+                return habitacion.Precio;
+            }
+
+            return 0;
+        }
+
         private void BuscarCedulaButton_Click(object sender, RoutedEventArgs e)
         {
             var HuespedEncontrado = HuespedesBLL.BuscarCedula(BuscarCedulaTextBox.Text);
@@ -180,6 +203,35 @@ namespace HotelMiraflores.UI.Registros
         private void DescuentoButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void CalcularDiasButton_Click(object sender, RoutedEventArgs e)
+        {
+            TimeSpan ts = (FechaSalidaDatePicker.SelectedDate.Value - FechaEntradaDatePicker.SelectedDate.Value);
+            int cantidadDias = (int)ts.TotalDays;
+            Reservacion.CantidadDias = (cantidadDias);
+            CalcularTotal();
+            Cargar();
+        }
+
+        public void CalcularTotal()
+        {
+            Reservacion.Total = (Reservacion.CantidadDias * GetPrecioHabitacion((int)HabitacionComboBox.SelectedValue));
+        }
+
+        public void CalcularTotalGeneral()
+        {
+            Reservacion.TotalGeneral = Reservacion.Total + Reservacion.TotalProductos;
+        }
+
+        private void TotalTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CalcularTotalGeneral();
+        }
+
+        private void TotalProductosTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CalcularTotalGeneral();
         }
     }
 }

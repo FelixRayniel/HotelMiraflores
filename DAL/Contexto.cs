@@ -28,13 +28,13 @@ namespace HotelMiraflores.DAL
         {
             modelBuilder.Entity<Departamentos>().HasData(new Departamentos
             {
-                DepartamentoID = 1,
+                DepartamentoId = 1,
                 Descripcion = "Restaurante",
             });
 
             modelBuilder.Entity<Departamentos>().HasData(new Departamentos
             {
-                DepartamentoID = 2,
+                DepartamentoId = 2,
                 Descripcion = "Bar",
             });
 

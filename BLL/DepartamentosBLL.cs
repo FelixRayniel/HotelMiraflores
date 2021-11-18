@@ -20,8 +20,8 @@ namespace HotelMiraflores.BLL
 
             try
             {
-                Departamento = contexto.Departamentos.Include(x => x.DepartamentoID)
-                   .Where(x => x.DepartamentoID == id)
+                Departamento = contexto.Departamentos.Include(x => x.DepartamentoId)
+                   .Where(x => x.DepartamentoId == id)
                    .SingleOrDefault();
 
             }

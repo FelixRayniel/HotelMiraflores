@@ -15,7 +15,7 @@ namespace HotelMiraflores.BLL
         
             public static bool Guardar(Reservaciones Reservacion)
             {
-                if (!Existe(Reservacion.ReservacionID))
+                if (!Existe(Reservacion.ReservacionId))
                     return Insertar(Reservacion);
                 else
                     return Modificar(Reservacion);
@@ -48,39 +48,38 @@ namespace HotelMiraflores.BLL
             }
             private static bool Modificar(Reservaciones Reservacion)
             {
-                bool paso = false;
-                Contexto contexto = new Contexto();
+            bool paso = false;
+            Contexto contexto = new Contexto();
 
-                try
+            try
+            {
+                var ProyectoAnterior = contexto.Reservaciones
+                    .Where(x => x.ReservacionId == Reservacion.ReservacionId)
+                    .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
+                    .AsNoTracking()
+                    .SingleOrDefault();
+
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where Id={Reservacion.ReservacionId}");
+
+                foreach (var detalle in ProyectoAnterior.ReservacionDetalle)
                 {
+                    contexto.Entry(detalle.Producto).State = EntityState.Modified;
 
-                    var ProductoAnterior = contexto.Reservaciones
-                        .Where(x => x.ReservacionID == Reservacion.ReservacionID)
-                        .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
-                        .AsNoTracking()
-                        .SingleOrDefault();
-
-                    contexto.Database.ExecuteSqlRaw($"Delete FROM TareasDetalle Where ID={Reservacion.ReservacionID}");
-
-                    foreach (var detalle in ProductoAnterior.ReservacionDetalle)
-                    {
-                        contexto.Entry(detalle.Producto).State = EntityState.Modified;
-
-                    }
-
-                    contexto.Entry(Reservacion).State = EntityState.Modified;
-                    paso = contexto.SaveChanges() > 0;
                 }
-                catch (Exception)
-                {
-                    throw;
-                }
-                finally
-                {
-                    contexto.Dispose();
-                }
-                return paso;
+
+                contexto.Entry(Reservacion).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
             }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return paso;
+        }
             public static bool Eliminar(int id)
             {
                 bool paso = false;
@@ -115,7 +114,7 @@ namespace HotelMiraflores.BLL
                 try
                 {
                     Reservacion = contexto.Reservaciones.Include(x => x.ReservacionDetalle)
-                    .Where(x => x.ReservacionID == id).Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
+                    .Where(x => x.ReservacionId == id).Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
                     .SingleOrDefault();
                 }
                 catch (Exception)
@@ -156,7 +155,7 @@ namespace HotelMiraflores.BLL
 
                 try
                 {
-                    encontrado = contexto.Reservaciones.Any(e => e.ReservacionID == id);
+                    encontrado = contexto.Reservaciones.Any(e => e.ReservacionId == id);
                 }
                 catch (Exception)
                 {

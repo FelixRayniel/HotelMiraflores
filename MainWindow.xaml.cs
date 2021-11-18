@@ -71,14 +71,42 @@ namespace HotelMiraflores
             rh.Show();
         }
 
-        private void cHuespedesItem_Click(object sender, RoutedEventArgs e)
+        private void ConsultaHuespedesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            new cHuespedes().Show();
+
         }
 
-        private void cMarcasItem_Click(object sender, RoutedEventArgs e)
+        private void ConsultaSuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            new cMarcas().Show();
+            cSuplidores cs = new cSuplidores();
+            cs.Show();
+        }
+
+        private void ConsultaMarcasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaProductosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaTipoHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConsultaHabitacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cHabitaciones ch = new cHabitaciones();
+
+            ch.Show();
+        }
+
+        private void ConsultaReservacionesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

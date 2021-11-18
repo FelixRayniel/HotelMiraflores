@@ -26,8 +26,10 @@ namespace HotelMiraflores.UI.Registros
         {
             InitializeComponent();
             this.DataContext = null;
+            Limpiar();
+
             TipoHabitacionComboBox.ItemsSource = TipoHabitacionesBLL.GettipoHabitaciones();
-            TipoHabitacionComboBox.SelectedValuePath = "TipoHabitacionID";
+            TipoHabitacionComboBox.SelectedValuePath = "TipoHabitacionId";
             TipoHabitacionComboBox.DisplayMemberPath = "Descripcion";
 
         }
@@ -109,7 +111,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                HabitacionesBLL.Eliminar(habitacion.HabitacionID);
+                HabitacionesBLL.Eliminar(habitacion.HabitacionId);
                 MessageBox.Show("HABITACION ELIMINADA", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

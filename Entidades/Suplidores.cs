@@ -10,9 +10,10 @@ namespace HotelMiraflores.Entidades
     public class Suplidores
     {
         [Key]
-        public int SuplidorID { get; set; }
+        public int SuplidorId { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }
         public string Descripcion { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

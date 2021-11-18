@@ -192,7 +192,7 @@ namespace HotelMiraflores.UI.Registros
 
             if (HuespedEncontrado != null)
             {
-                HuespedComboBox.SelectedValue = HuespedEncontrado.HuespedID;
+                HuespedComboBox.SelectedValue = HuespedEncontrado.HuespedId;
             }
             else
             {

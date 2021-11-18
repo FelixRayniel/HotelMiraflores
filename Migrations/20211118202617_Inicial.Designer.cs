@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211116010948_Inicial")]
+    [Migration("20211118202617_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,33 +20,33 @@ namespace HotelMiraflores.Migrations
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Departamentos", b =>
                 {
-                    b.Property<int>("DepartamentoID")
+                    b.Property<int>("DepartamentoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("DepartamentoID");
+                    b.HasKey("DepartamentoId");
 
                     b.ToTable("Departamentos");
 
                     b.HasData(
                         new
                         {
-                            DepartamentoID = 1,
+                            DepartamentoId = 1,
                             Descripcion = "Restaurante"
                         },
                         new
                         {
-                            DepartamentoID = 2,
+                            DepartamentoId = 2,
                             Descripcion = "Bar"
                         });
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Habitaciones", b =>
                 {
-                    b.Property<int>("HabitacionID")
+                    b.Property<int>("HabitacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -62,10 +62,13 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("Precio")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("TipoHabitacionID")
+                    b.Property<int>("TipoHabitacionId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("HabitacionID");
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("HabitacionId");
 
                     b.ToTable("Habitaciones");
                 });
@@ -147,7 +150,7 @@ namespace HotelMiraflores.Migrations
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Reservaciones", b =>
                 {
-                    b.Property<int>("ReservacionID")
+                    b.Property<int>("ReservacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -172,10 +175,10 @@ namespace HotelMiraflores.Migrations
                     b.Property<DateTime>("FechaSalida")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("HabitacionID")
+                    b.Property<int>("HabitacionId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("HuespedID")
+                    b.Property<int>("HuespedId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Total")
@@ -187,14 +190,17 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("TotalProductos")
                         .HasColumnType("REAL");
 
-                    b.HasKey("ReservacionID");
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ReservacionId");
 
                     b.ToTable("Reservaciones");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -204,24 +210,27 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("Precio")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("ProductoID")
+                    b.Property<int>("ProductoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ReservacionID")
+                    b.Property<int?>("ReservacionId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ID");
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
 
-                    b.HasIndex("ProductoID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("ReservacionID");
+                    b.HasIndex("ProductoId");
+
+                    b.HasIndex("ReservacionId");
 
                     b.ToTable("ReservacionesDetalle");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Suplidores", b =>
                 {
-                    b.Property<int>("SuplidorID")
+                    b.Property<int>("SuplidorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -234,7 +243,10 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("SuplidorID");
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SuplidorId");
 
                     b.ToTable("Suplidores");
                 });
@@ -257,13 +269,13 @@ namespace HotelMiraflores.Migrations
                 {
                     b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
                         .WithMany()
-                        .HasForeignKey("ProductoID")
+                        .HasForeignKey("ProductoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HotelMiraflores.Entidades.Reservaciones", null)
                         .WithMany("ReservacionDetalle")
-                        .HasForeignKey("ReservacionID");
+                        .HasForeignKey("ReservacionId");
 
                     b.Navigation("Producto");
                 });

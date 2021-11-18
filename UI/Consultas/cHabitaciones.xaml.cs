@@ -34,7 +34,7 @@ namespace HotelMiraflores.UI.Consultas
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = HabitacionesBLL.GetList(s => s.HabitacionID == Utilidades.ToInt(CriterioTextBox.Text));
+                        listado = HabitacionesBLL.GetList(s => s.HabitacionId == Utilidades.ToInt(CriterioTextBox.Text));
                         break;
 
                     case 1:

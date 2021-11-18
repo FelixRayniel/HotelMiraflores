@@ -28,15 +28,15 @@ namespace HotelMiraflores.UI.Registros
             Limpiar();
 
             HuespedComboBox.ItemsSource = HuespedesBLL.GetHuespedes();
-            HuespedComboBox.SelectedValuePath = "HuespedID";
+            HuespedComboBox.SelectedValuePath = "HuespedId";
             HuespedComboBox.DisplayMemberPath = "Nombres";
 
             HabitacionComboBox.ItemsSource = HabitacionesBLL.GetHabitaciones();
-            HabitacionComboBox.SelectedValuePath = "HabitacionID";
+            HabitacionComboBox.SelectedValuePath = "HabitacionId";
             HabitacionComboBox.DisplayMemberPath = "Numero";
 
             ProductosComboBox.ItemsSource = ProductosBLL.GetProductos();
-            ProductosComboBox.SelectedValuePath = "ProductoID";
+            ProductosComboBox.SelectedValuePath = "ProductoId";
             ProductosComboBox.DisplayMemberPath = "Descripcion";
 
 
@@ -59,7 +59,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionID);
+            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionId);
 
             if (ReservaEncontrada != null)
             {
@@ -81,7 +81,7 @@ namespace HotelMiraflores.UI.Registros
 
             Reservacion.ReservacionDetalle.Add(new ReservacionesDetalle(
                 (int)ProductosComboBox.SelectedValue, int.Parse(CantidadTextBox.Text),
-                GetPrecioProducto((int)ProductosComboBox.SelectedValue), (float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue)), 
+                GetPrecioProducto((int)ProductosComboBox.SelectedValue), 
                 (Productos)ProductosComboBox.SelectedItem
 
                 ));
@@ -131,7 +131,7 @@ namespace HotelMiraflores.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionID);
+            Reservaciones ReservaEncontrada = ReservacionesBLL.Buscar(Reservacion.ReservacionId);
 
             if (ReservaEncontrada == null)
             {
@@ -140,7 +140,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                ReservacionesBLL.Eliminar(Reservacion.ReservacionID);
+                ReservacionesBLL.Eliminar(Reservacion.ReservacionId);
                 MessageBox.Show("PROYECTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

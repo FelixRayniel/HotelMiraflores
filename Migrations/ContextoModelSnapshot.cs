@@ -132,6 +132,9 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("PrecioVenta")
                         .HasColumnType("REAL");
 
+                    b.Property<int>("SuplidorID")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Unidad")
                         .HasColumnType("INTEGER");
 
@@ -204,9 +207,6 @@ namespace HotelMiraflores.Migrations
 
                     b.Property<int?>("ReservacionID")
                         .HasColumnType("INTEGER");
-
-                    b.Property<float>("TotalProducto")
-                        .HasColumnType("REAL");
 
                     b.HasKey("ID");
 

@@ -107,7 +107,7 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                SuplidoresBLL.Eliminar(suplidor.SuplidorID);
+                SuplidoresBLL.Eliminar(suplidor.SuplidorId);
                 MessageBox.Show("SUPLIDOR ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }

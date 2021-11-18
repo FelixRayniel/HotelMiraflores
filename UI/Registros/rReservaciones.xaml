@@ -12,9 +12,9 @@
 
             <StackPanel Orientation="Vertical" Margin="10,10,10,10">
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Reservacion ID: "/>
+                    <Label Content="Reservacion Id: "/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionID}" />
+                        <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionId}" />
                         <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="30"  VerticalContentAlignment="Top" Width="76">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -42,7 +42,7 @@
                                 </Button>
                             </StackPanel>
                             <Label Content="Huesped:"/>
-                            <ComboBox x:Name="HuespedComboBox" Width="384" HorizontalAlignment="Left" SelectedValue="{Binding HuespedID}"/>
+                            <ComboBox x:Name="HuespedComboBox" Width="384" HorizontalAlignment="Left" SelectedValue="{Binding HuespedId}"/>
 
                         </StackPanel>
 
@@ -52,7 +52,7 @@
                     <TextBox x:Name="CantidadPersonasTextBox" Text="{Binding CantidadPersonas}" Width="197" HorizontalAlignment="Left" />
 
                     <Label Content="Habitacion: "/>
-                    <ComboBox x:Name="HabitacionComboBox" SelectedValue ="{Binding HabitacionID}" Width="474" HorizontalAlignment="Left"  />
+                    <ComboBox x:Name="HabitacionComboBox" SelectedValue ="{Binding HabitacionId}" Width="474" HorizontalAlignment="Left"  />
 
                     <Label Content="Fecha de Entrada:"/>
                     <DatePicker x:Name="FechaEntradaDatePicker" SelectedDate="{Binding FechaEntrada}" Width="474" HorizontalAlignment="Left" />
@@ -82,7 +82,7 @@
 
                                 <StackPanel Width="224" Height="61" VerticalAlignment="Top">
                                     <Label Content="Producto: "/>
-                                    <ComboBox x:Name="ProductosComboBox" SelectedValue="{Binding ReservacionDetalle.ProductoID}"  />
+                                    <ComboBox x:Name="ProductosComboBox" SelectedValue="{Binding ReservacionDetalle.ProductoId}"  />
                                 </StackPanel>
 
                                 <StackPanel Width="103" Height="56" VerticalAlignment="Top" Margin="5,0,0,0">
@@ -98,7 +98,7 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="225" AutoGenerateColumns="False"  >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Producto ID" Binding="{Binding ProductoID}" />
+                                    <DataGridTextColumn Header="Producto Id" Binding="{Binding ProductoId}" />
                                     <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
                                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
                                     <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" />

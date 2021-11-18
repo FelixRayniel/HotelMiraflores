@@ -15,7 +15,7 @@ namespace HotelMiraflores.BLL
         
             public static bool Guardar(Reservaciones Reservacion)
             {
-                if (!Existe(Reservacion.ReservacionID))
+                if (!Existe(Reservacion.ReservacionId))
                     return Insertar(Reservacion);
                 else
                     return Modificar(Reservacion);
@@ -54,12 +54,12 @@ namespace HotelMiraflores.BLL
             try
             {
                 var ProyectoAnterior = contexto.Reservaciones
-                    .Where(x => x.ReservacionID == Reservacion.ReservacionID)
+                    .Where(x => x.ReservacionId == Reservacion.ReservacionId)
                     .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
                     .AsNoTracking()
                     .SingleOrDefault();
 
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where ID={Reservacion.ReservacionID}");
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where Id={Reservacion.ReservacionId}");
 
                 foreach (var detalle in ProyectoAnterior.ReservacionDetalle)
                 {
@@ -114,7 +114,7 @@ namespace HotelMiraflores.BLL
                 try
                 {
                     Reservacion = contexto.Reservaciones.Include(x => x.ReservacionDetalle)
-                    .Where(x => x.ReservacionID == id).Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
+                    .Where(x => x.ReservacionId == id).Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
                     .SingleOrDefault();
                 }
                 catch (Exception)
@@ -155,7 +155,7 @@ namespace HotelMiraflores.BLL
 
                 try
                 {
-                    encontrado = contexto.Reservaciones.Any(e => e.ReservacionID == id);
+                    encontrado = contexto.Reservaciones.Any(e => e.ReservacionId == id);
                 }
                 catch (Exception)
                 {

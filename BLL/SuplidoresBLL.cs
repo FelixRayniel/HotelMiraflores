@@ -14,7 +14,7 @@ namespace HotelMiraflores.BLL
     {
         public static bool Guardar(Suplidores Suplidor)
         {
-            if (!Existe(Suplidor.SuplidorID))
+            if (!Existe(Suplidor.SuplidorId))
             {
                 return Insertar(Suplidor);
             }
@@ -133,7 +133,7 @@ namespace HotelMiraflores.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Suplidores.Any(s => s.SuplidorID == id);
+                encontrado = contexto.Suplidores.Any(s => s.SuplidorId == id);
             }
             catch (Exception)
             {

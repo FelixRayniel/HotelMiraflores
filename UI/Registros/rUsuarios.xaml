@@ -1,0 +1,69 @@
+﻿<Window x:Class="HotelMiraflores.UI.Registros.rUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
+        mc:Ignorable="d"
+       Title="Registro de Usuarios" Height="490" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Usuario Id: "/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="HuespedIDTextBox" Width="87" Height="23" Text="{Binding UsuarioId}" />
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png" />
+                            <Label Content="Buscar" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+
+                <Label Content="Nombres: "/>
+                <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" />
+
+                <Label Content="Nombre de usuario: "/>
+                <TextBox x:Name="CedulaTextBox" Text="{Binding NombreUsuario}" />
+
+                <Label Content="Contraseña: "/>
+                <TextBox x:Name="ClaveTextBox" Text="{Binding Clave}" />
+
+                <Label Content="Confirmar Contraseña: "/>
+                <TextBox x:Name="ConfirmarClaveTextBox" />
+
+                <Label Content="Email: "/>
+                <TextBox x:Name="EmailTextBox" Text="{Binding Email}" />
+
+                <Label Content="Telefono: "/>
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" />
+
+                <Label Content="Direccion: "/>
+                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,15" Width="270" >
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                        <Label Content="Guardar" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-eliminar-16.png" />
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

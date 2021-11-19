@@ -1,11 +1,11 @@
 ﻿<Window x:Class="HotelMiraflores.UI.Registros.rReservaciones"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Reservaciones" Height="1132" Width="997">
+        Title="Registro de Reservaciones" Height="1172" Width="997">
     <Grid>
 
         <ScrollViewer>
@@ -96,13 +96,13 @@
                                 </Button>
                             </StackPanel>
 
-                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="225" AutoGenerateColumns="False"  >
+                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="225" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Producto Id" Binding="{Binding ProductoId}" />
                                     <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
                                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
                                     <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" />
-                                    <DataGridTextColumn Header="Total del Servicio" Binding="{Binding TotalProducto}" />
+                                    
                                 </DataGrid.Columns>
 
                             </DataGrid>

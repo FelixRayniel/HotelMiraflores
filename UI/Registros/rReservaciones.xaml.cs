@@ -85,11 +85,7 @@ namespace HotelMiraflores.UI.Registros
                 (Productos)ProductosComboBox.SelectedItem
 
                 ));
-
-            Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
-
-
-
+                 Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
             Cargar();
         }
 
@@ -233,5 +229,7 @@ namespace HotelMiraflores.UI.Registros
         {
             CalcularTotalGeneral();
         }
+
+        
     }
 }

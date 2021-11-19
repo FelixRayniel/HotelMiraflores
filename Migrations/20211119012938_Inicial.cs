@@ -42,7 +42,7 @@ namespace HotelMiraflores.Migrations
                 name: "Huespedes",
                 columns: table => new
                 {
-                    HuespedID = table.Column<int>(type: "INTEGER", nullable: false)
+                    HuespedId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombres = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
@@ -52,27 +52,27 @@ namespace HotelMiraflores.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Huespedes", x => x.HuespedID);
+                    table.PrimaryKey("PK_Huespedes", x => x.HuespedId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Marcas",
                 columns: table => new
                 {
-                    MarcaID = table.Column<int>(type: "INTEGER", nullable: false)
+                    MarcaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Marcas", x => x.MarcaID);
+                    table.PrimaryKey("PK_Marcas", x => x.MarcaId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Productos",
                 columns: table => new
                 {
-                    ProductoID = table.Column<int>(type: "INTEGER", nullable: false)
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
                     SuplidorID = table.Column<int>(type: "INTEGER", nullable: false),
@@ -85,7 +85,7 @@ namespace HotelMiraflores.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Productos", x => x.ProductoID);
+                    table.PrimaryKey("PK_Productos", x => x.ProductoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,13 +133,13 @@ namespace HotelMiraflores.Migrations
                 name: "TipoHabitaciones",
                 columns: table => new
                 {
-                    TipoHabitacionID = table.Column<int>(type: "INTEGER", nullable: false)
+                    TipoHabitacionId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoHabitaciones", x => x.TipoHabitacionID);
+                    table.PrimaryKey("PK_TipoHabitaciones", x => x.TipoHabitacionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -161,7 +161,7 @@ namespace HotelMiraflores.Migrations
                         name: "FK_ReservacionesDetalle_Productos_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Productos",
-                        principalColumn: "ProductoID",
+                        principalColumn: "ProductoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ReservacionesDetalle_Reservaciones_ReservacionId",

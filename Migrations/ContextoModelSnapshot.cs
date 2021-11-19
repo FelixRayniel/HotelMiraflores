@@ -73,7 +73,7 @@ namespace HotelMiraflores.Migrations
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Huespedes", b =>
                 {
-                    b.Property<int>("HuespedID")
+                    b.Property<int>("HuespedId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -92,28 +92,28 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("HuespedID");
+                    b.HasKey("HuespedId");
 
                     b.ToTable("Huespedes");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Marcas", b =>
                 {
-                    b.Property<int>("MarcaID")
+                    b.Property<int>("MarcaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("MarcaID");
+                    b.HasKey("MarcaId");
 
                     b.ToTable("Marcas");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Productos", b =>
                 {
-                    b.Property<int>("ProductoID")
+                    b.Property<int>("ProductoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -141,7 +141,7 @@ namespace HotelMiraflores.Migrations
                     b.Property<int>("Unidad")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ProductoID");
+                    b.HasKey("ProductoId");
 
                     b.ToTable("Productos");
                 });
@@ -251,14 +251,14 @@ namespace HotelMiraflores.Migrations
 
             modelBuilder.Entity("HotelMiraflores.Entidades.TipoHabitaciones", b =>
                 {
-                    b.Property<int>("TipoHabitacionID")
+                    b.Property<int>("TipoHabitacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("TipoHabitacionID");
+                    b.HasKey("TipoHabitacionId");
 
                     b.ToTable("TipoHabitaciones");
                 });

@@ -39,13 +39,13 @@ namespace HotelMiraflores.UI.Consultas
                         listado = ProductosBLL.GetList(p => true);
                         break;
                     case 1:
-                        listado = ProductosBLL.GetList(p => p.DepartamentoID == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ProductosBLL.GetList(p => p.DepartamentoId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                     case 2:
                         listado = ProductosBLL.GetList(p => p.ProductoId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                     case 3:
-                        listado = ProductosBLL.GetList(p => p.SuplidorID == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ProductosBLL.GetList(p => p.SuplidorId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                 }
             }

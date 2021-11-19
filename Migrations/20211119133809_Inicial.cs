@@ -148,11 +148,11 @@ namespace HotelMiraflores.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ReservacionId = table.Column<int>(type: "INTEGER", nullable: false),
                     Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
                     Precio = table.Column<float>(type: "REAL", nullable: false),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ReservacionId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,13 +162,13 @@ namespace HotelMiraflores.Migrations
                         column: x => x.ProductoId,
                         principalTable: "Productos",
                         principalColumn: "ProductoId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ReservacionesDetalle_Reservaciones_ReservacionId",
                         column: x => x.ReservacionId,
                         principalTable: "Reservaciones",
                         principalColumn: "ReservacionId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(

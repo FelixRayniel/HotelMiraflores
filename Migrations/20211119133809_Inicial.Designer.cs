@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211119012938_Inicial")]
+    [Migration("20211119133809_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -210,10 +210,10 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("Precio")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("ProductoId")
+                    b.Property<int?>("ProductoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ReservacionId")
+                    b.Property<int>("ReservacionId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UsuarioId")
@@ -269,13 +269,13 @@ namespace HotelMiraflores.Migrations
                 {
                     b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
                         .WithMany()
-                        .HasForeignKey("ProductoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductoId");
 
                     b.HasOne("HotelMiraflores.Entidades.Reservaciones", null)
                         .WithMany("ReservacionDetalle")
-                        .HasForeignKey("ReservacionId");
+                        .HasForeignKey("ReservacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producto");
                 });

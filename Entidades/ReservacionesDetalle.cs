@@ -12,7 +12,7 @@ namespace HotelMiraflores.Entidades
     {
         [Key]
         public int Id { get; set; }
-        public int ProductoId { get; set; }
+        public int ReservacionId { get; set; }
         public int Cantidad { get; set; }
         public float Precio { get; set; }
         public int UsuarioId { get; set; }
@@ -31,17 +31,17 @@ namespace HotelMiraflores.Entidades
         public ReservacionesDetalle()
         {
             Id = 0;
-            ProductoId = 0;
+            ReservacionId = 0;
             Cantidad = 0;
             Precio = 0;
             Producto = null;
         }
 
 
-        public ReservacionesDetalle(int productoId, int cantidad, float precio, Productos producto)
+        public ReservacionesDetalle(int reservacionId, int cantidad, float precio, Productos producto)
         {
             Id = 0;
-            ProductoId = productoId;
+            ReservacionId = reservacionId;
             Cantidad = cantidad;
             Precio = precio;
             Producto = producto;

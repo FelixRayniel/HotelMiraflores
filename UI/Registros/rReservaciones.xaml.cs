@@ -54,7 +54,7 @@ namespace HotelMiraflores.UI.Registros
         {
             this.DataContext = null;
             this.DataContext = Reservacion;
-            
+
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
@@ -77,15 +77,15 @@ namespace HotelMiraflores.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             Reservacion.ReservacionDetalle.Add(new ReservacionesDetalle(
                 (int)ProductosComboBox.SelectedValue, int.Parse(CantidadTextBox.Text),
-                GetPrecioProducto((int)ProductosComboBox.SelectedValue), 
+                GetPrecioProducto((int)ProductosComboBox.SelectedValue),
                 (Productos)ProductosComboBox.SelectedItem
 
                 ));
-                 Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
+            Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
             Cargar();
         }
 
@@ -95,7 +95,7 @@ namespace HotelMiraflores.UI.Registros
                 DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
                 ReservacionesDetalle T = (ReservacionesDetalle)DetalleDataGrid.SelectedValue;
-                Reservacion.TotalProductos-= T.TotalProducto;
+                Reservacion.TotalProductos -= T.TotalProducto;
                 Reservacion.ReservacionDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -158,7 +158,7 @@ namespace HotelMiraflores.UI.Registros
             return esValido;
         }
 
-        public float GetPrecioProducto(int id) 
+        public float GetPrecioProducto(int id)
         {
             Productos producto = ProductosBLL.Buscar(id);
 
@@ -230,6 +230,6 @@ namespace HotelMiraflores.UI.Registros
             CalcularTotalGeneral();
         }
 
-        
+
     }
 }

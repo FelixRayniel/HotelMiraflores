@@ -25,13 +25,13 @@
                 <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="21" Width="292" HorizontalAlignment="Left" />
 
                 <Label Content="Suplidor: "/>
-                <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorID}" Width="215" HorizontalAlignment="Left" />
+                <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorId}" Width="215" HorizontalAlignment="Left" />
 
                 <Label Content="Marca: "/>
                 <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaId}" Width="226" HorizontalAlignment="Left" />
 
                 <Label Content="Departamento: "/>
-                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoID}" Width="226" HorizontalAlignment="Left" />
+                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoId}" Width="226" HorizontalAlignment="Left" />
 
                 <Label Content="Unidad: "/>
                 <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" Height="20" Width="150" HorizontalAlignment="Left" />

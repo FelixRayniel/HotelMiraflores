@@ -14,9 +14,9 @@ namespace HotelMiraflores.Entidades
         public int ReservacionId { get; set; }
         public int HuespedId { get; set; }
         public int CantidadPersonas { get; set; }
-        public DateTime Fecha { get; set; } = DateTime.Now;
-        public DateTime FechaEntrada { get; set; } = DateTime.Now;
-        public DateTime FechaSalida { get; set; } = DateTime.Now;
+        public DateTime Fecha { get; set; }
+        public DateTime FechaEntrada { get; set; }
+        public DateTime FechaSalida { get; set; }
         public int CantidadDias { get; set; }
         public int HabitacionId { get; set; }
         public float Descuentos { get; set; }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211119133809_Inicial")]
+    [Migration("20211121013139_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,70 @@ namespace HotelMiraflores.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.11");
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.Compras", b =>
+                {
+                    b.Property<int>("CompraId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SuplidorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("TotalCompra")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CompraId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("Compras");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.ComprasDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("CantidadDisponible")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("CompraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ComprasId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Costo")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompraId");
+
+                    b.HasIndex("ComprasId");
+
+                    b.ToTable("ComprasDetalle");
+                });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Departamentos", b =>
                 {
@@ -122,13 +186,13 @@ namespace HotelMiraflores.Migrations
                     b.Property<int>("CantidadDisponible")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DepartamentoID")
+                    b.Property<int>("DepartamentoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("MarcaID")
+                    b.Property<int>("MarcaId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("PrecioCosto")
@@ -137,7 +201,7 @@ namespace HotelMiraflores.Migrations
                     b.Property<float>("PrecioVenta")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("SuplidorID")
+                    b.Property<int>("SuplidorId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Unidad")
@@ -228,6 +292,32 @@ namespace HotelMiraflores.Migrations
                     b.ToTable("ReservacionesDetalle");
                 });
 
+            modelBuilder.Entity("HotelMiraflores.Entidades.Roles", b =>
+                {
+                    b.Property<int>("RolId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("RolId");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            RolId = 1,
+                            Descripcion = "Administrador"
+                        },
+                        new
+                        {
+                            RolId = 2,
+                            Descripcion = "Recepcionista"
+                        });
+                });
+
             modelBuilder.Entity("HotelMiraflores.Entidades.Suplidores", b =>
                 {
                     b.Property<int>("SuplidorId")
@@ -263,6 +353,76 @@ namespace HotelMiraflores.Migrations
                     b.HasKey("TipoHabitacionId");
 
                     b.ToTable("TipoHabitaciones");
+
+                    b.HasData(
+                        new
+                        {
+                            TipoHabitacionId = 1,
+                            Descripcion = "Sencilla"
+                        },
+                        new
+                        {
+                            TipoHabitacionId = 2,
+                            Descripcion = "Double"
+                        },
+                        new
+                        {
+                            TipoHabitacionId = 3,
+                            Descripcion = "Triple"
+                        });
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.Usuarios", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Clave")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NombreUsuario")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombres")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UsuarioId");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.Compras", b =>
+                {
+                    b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.ComprasDetalle", b =>
+                {
+                    b.HasOne("HotelMiraflores.Entidades.Compras", "Compras")
+                        .WithMany()
+                        .HasForeignKey("CompraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelMiraflores.Entidades.Compras", null)
+                        .WithMany("ComprasDetalle")
+                        .HasForeignKey("ComprasId");
+
+                    b.Navigation("Compras");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>
@@ -278,6 +438,11 @@ namespace HotelMiraflores.Migrations
                         .IsRequired();
 
                     b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("HotelMiraflores.Entidades.Compras", b =>
+                {
+                    b.Navigation("ComprasDetalle");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Reservaciones", b =>

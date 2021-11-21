@@ -19,6 +19,8 @@ namespace HotelMiraflores.DAL
         public DbSet<Suplidores> Suplidores { get; set; }
         public DbSet<Productos> Productos { get; set; }
         public DbSet<Compras> Compras { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,6 +39,38 @@ namespace HotelMiraflores.DAL
             {
                 DepartamentoId = 2,
                 Descripcion = "Bar",
+            });
+
+            modelBuilder.Entity<Roles>().HasData(new Roles
+            {
+                RolId = 1,
+                Descripcion = "Administrador",
+            });
+
+            modelBuilder.Entity<Roles>().HasData(new Roles
+            {
+                RolId = 2,
+                Descripcion = "Recepcionista",
+            });
+
+            modelBuilder.Entity<TipoHabitaciones>().HasData(new TipoHabitaciones
+            {
+                TipoHabitacionId = 1,
+                Descripcion = "Sencilla",
+            });
+
+            modelBuilder.Entity<TipoHabitaciones>().HasData(new TipoHabitaciones
+            {
+                TipoHabitacionId = 2,
+                Descripcion = "Double",
+
+            });
+
+            modelBuilder.Entity<TipoHabitaciones>().HasData(new TipoHabitaciones
+            {
+                TipoHabitacionId = 3,
+                Descripcion = "Triple",
+
             });
 
         }

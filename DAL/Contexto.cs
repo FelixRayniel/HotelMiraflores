@@ -18,6 +18,7 @@ namespace HotelMiraflores.DAL
         public DbSet<Reservaciones> Reservaciones { get; set; }
         public DbSet<Suplidores> Suplidores { get; set; }
         public DbSet<Productos> Productos { get; set; }
+        public DbSet<Compras> Compras { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

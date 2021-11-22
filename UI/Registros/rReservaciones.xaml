@@ -98,7 +98,7 @@
 
                             <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="225" AutoGenerateColumns="False" >
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Producto Id" Binding="{Binding ProductoId}" />
+                                    <DataGridTextColumn Header="Producto Id" Binding="{Binding Producto.ProductoId}" />
                                     <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
                                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
                                     <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" />

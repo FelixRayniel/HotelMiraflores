@@ -80,7 +80,7 @@ namespace HotelMiraflores.UI.Registros
 
 
             Reservacion.ReservacionDetalle.Add(new ReservacionesDetalle(
-                (int)ProductosComboBox.SelectedValue, int.Parse(CantidadTextBox.Text),
+                Utilidades.ToInt(ReservacionIDTextBox.Text), int.Parse(CantidadTextBox.Text),
                 GetPrecioProducto((int)ProductosComboBox.SelectedValue),
                 (Productos)ProductosComboBox.SelectedItem
 

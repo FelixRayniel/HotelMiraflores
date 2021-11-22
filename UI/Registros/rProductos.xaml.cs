@@ -33,11 +33,11 @@ namespace HotelMiraflores.UI.Registros
             MarcasComboBox.DisplayMemberPath = "Descripcion";
 
             DepartamentoComboBox.ItemsSource = DepartamentosBLL.GetDepartamentos();
-            DepartamentoComboBox.SelectedValuePath = "DepartamentoID";
+            DepartamentoComboBox.SelectedValuePath = "DepartamentoId";
             DepartamentoComboBox.DisplayMemberPath = "Descripcion";
 
             SuplidorComboBox.ItemsSource = SuplidoresBLL.GetSuplidores();
-            SuplidorComboBox.SelectedValuePath = "SuplidorID";
+            SuplidorComboBox.SelectedValuePath = "SuplidorId";
             SuplidorComboBox.DisplayMemberPath = "Nombre";
         }
         private void Limpiar()

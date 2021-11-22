@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HotelMiraflores.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Inicia : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -166,8 +166,7 @@ namespace HotelMiraflores.Migrations
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     NombreUsuario = table.Column<string>(type: "TEXT", nullable: true),
-                    Clave = table.Column<string>(type: "TEXT", nullable: true),
-                    RolId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Clave = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -291,16 +290,6 @@ namespace HotelMiraflores.Migrations
                 table: "TipoHabitaciones",
                 columns: new[] { "TipoHabitacionId", "Descripcion" },
                 values: new object[] { 3, "Triple" });
-
-            migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "UsuarioId", "Clave", "Direccion", "Email", "NombreUsuario", "Nombres", "RolId", "Telefono" },
-                values: new object[] { 1, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "F.Reynoso", "Felix Reynoso", 0, null });
-
-            migrationBuilder.InsertData(
-                table: "Usuarios",
-                columns: new[] { "UsuarioId", "Clave", "Direccion", "Email", "NombreUsuario", "Nombres", "RolId", "Telefono" },
-                values: new object[] { 2, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "P.Canario", "Perla Canario", 0, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Compras_ProductoId",

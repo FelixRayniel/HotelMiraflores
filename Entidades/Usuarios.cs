@@ -17,8 +17,7 @@ namespace HotelMiraflores.Entidades
         public string Direccion { get; set; }
         public string NombreUsuario { get; set; }
         public string Clave { get; set; }
-        public int RolId { get; set; }
-
+        
 
         public Usuarios()
         {
@@ -27,7 +26,6 @@ namespace HotelMiraflores.Entidades
             Nombres = string.Empty;
             NombreUsuario = string.Empty;
             Clave = string.Empty;
-            RolId = 0;
         }
     }
 }

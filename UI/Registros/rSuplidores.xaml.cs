@@ -45,31 +45,10 @@ namespace HotelMiraflores.UI.Registros
         {
             bool esValido = true;
 
-            if (SuplidorIDTextBox.Text == "0")
-            {
-                esValido = false;
-                MessageBox.Show("Ingrese un Id", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
-            if (NombreTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Ingrese un nombre", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
-            if (TelefonoTextBox.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Ingrese un telefono", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
             if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese una descripcion", "Fallo",
+                MessageBox.Show("Ingrese la descripcion", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 

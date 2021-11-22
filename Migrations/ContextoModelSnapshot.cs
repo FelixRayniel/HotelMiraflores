@@ -391,35 +391,12 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Nombres")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RolId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
-
-                    b.HasData(
-                        new
-                        {
-                            UsuarioId = 1,
-                            Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-                            Email = "",
-                            NombreUsuario = "F.Reynoso",
-                            Nombres = "Felix Reynoso",
-                            RolId = 0
-                        },
-                        new
-                        {
-                            UsuarioId = 2,
-                            Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-                            Email = "",
-                            NombreUsuario = "P.Canario",
-                            Nombres = "Perla Canario",
-                            RolId = 0
-                        });
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.Compras", b =>

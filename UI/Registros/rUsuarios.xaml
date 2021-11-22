@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
-        xmlns:PasswordHelper="clr-namespace:HotelMiraflores.PasswordHelper"
         mc:Ignorable="d"
        Title="Registro de Usuarios" Height="517" Width="400">
     <Grid>
@@ -29,14 +28,11 @@
                 <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}" />
 
                 <Label Content="Contraseña: "/>
-                <PasswordBox x:Name="ClavePasswordBox"
-                        PasswordHelper:PasswordHelper.Attach="True" 
-                             PasswordHelper:PasswordHelper.Password="{Binding Clave,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"/>
-                
+                <TextBox x:Name="ClaveTextBox" Text="{Binding Clave}"  />
 
                 <Label Content="Confirmar Contraseña: "/>
-                <PasswordBox x:Name="ConfirmarClavePasswordBox"/>
-
+                <TextBox x:Name="ConfirmarClaveTextBox" />
+                
                 <Label Content="Rol: "/>
                 <ComboBox x:Name="RolComboBox" SelectedValue ="{Binding RolId}"   />
 

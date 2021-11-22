@@ -108,5 +108,11 @@ namespace HotelMiraflores
         {
 
         }
+
+        private void RegistroUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rUsuarios ru = new rUsuarios();
+            ru.Show();
+        }
     }
 }

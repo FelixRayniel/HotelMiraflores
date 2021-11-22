@@ -13,6 +13,7 @@ namespace HotelMiraflores.Entidades
         [Key]
         public int Id { get; set; }
         public int ReservacionId { get; set; }
+        public int ProductoId { get; set; }
         public int Cantidad { get; set; }
         public float Precio { get; set; }
         public int UsuarioId { get; set; }
@@ -28,6 +29,7 @@ namespace HotelMiraflores.Entidades
         [ForeignKey("ProductoId")]
         public virtual Productos Producto  { get; set; }
 
+
         public ReservacionesDetalle()
         {
             Id = 0;
@@ -38,13 +40,14 @@ namespace HotelMiraflores.Entidades
         }
 
 
-        public ReservacionesDetalle(int reservacionId, int cantidad, float precio, Productos producto)
+        public ReservacionesDetalle(int reservacionid, int cantidad, float precio, Productos producto)
         {
             Id = 0;
-            ReservacionId = reservacionId;
+            ReservacionId = ReservacionId;
             Cantidad = cantidad;
             Precio = precio;
             Producto = producto;
         }
+
     }
 }

@@ -27,7 +27,7 @@ namespace HotelMiraflores.Entidades
         public int UsuarioId { get; set; }
 
         [ForeignKey("ReservacionId")]
-        public List<ReservacionesDetalle> ReservacionDetalle { get; set; } = new List<ReservacionesDetalle>();
+        public virtual List<ReservacionesDetalle> ReservacionDetalle { get; set; } = new List<ReservacionesDetalle>();
 
     }
 }

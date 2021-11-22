@@ -32,7 +32,8 @@ namespace HotelMiraflores.BLL
                     foreach (var detalle in Reservacion.ReservacionDetalle)
                     {
                         contexto.Entry(detalle.Producto).State = EntityState.Modified;
-                    }
+                        detalle.Producto.CantidadDisponible -= detalle.Cantidad;
+                }
 
                     paso = contexto.SaveChanges() > 0;
                 }
@@ -53,18 +54,26 @@ namespace HotelMiraflores.BLL
 
             try
             {
-                var ProyectoAnterior = contexto.Reservaciones
+                var ReservacionAnterior = contexto.Reservaciones
                     .Where(x => x.ReservacionId == Reservacion.ReservacionId)
                     .Include(x => x.ReservacionDetalle).ThenInclude(x => x.Producto)
                     .AsNoTracking()
                     .SingleOrDefault();
 
-                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where Id={Reservacion.ReservacionId}");
-
-                foreach (var detalle in ProyectoAnterior.ReservacionDetalle)
+                foreach (var detalle in ReservacionAnterior.ReservacionDetalle)
                 {
-                    contexto.Entry(detalle.Producto).State = EntityState.Modified;
+                    detalle.Producto.CantidadDisponible += detalle.Cantidad;
+                    
+                }
 
+                contexto.Database.ExecuteSqlRaw($"Delete FROM ReservacionesDetalle Where ReservacionId={Reservacion.ReservacionId}");
+
+                foreach (var item in Reservacion.ReservacionDetalle)
+                {
+                    contexto.Entry(item).State = EntityState.Added;
+                    contexto.Entry(item.Producto).State = EntityState.Modified;
+                    item.Producto.CantidadDisponible -= item.Cantidad;
+                    
                 }
 
                 contexto.Entry(Reservacion).State = EntityState.Modified;

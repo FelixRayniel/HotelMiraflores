@@ -24,7 +24,8 @@ namespace HotelMiraflores.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = DATA\BDHotelMiraFlores.db");
+            optionsBuilder.EnableSensitiveDataLogging().UseSqlite(@"Data Source = DATA\BDHotelMiraFlores.db");
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -72,6 +73,29 @@ namespace HotelMiraflores.DAL
                 Descripcion = "Triple",
 
             });
+
+            modelBuilder.Entity<Usuarios>().HasData(new Usuarios
+            {
+                UsuarioId = 1,
+                Nombres = "Felix Reynoso",
+                NombreUsuario = "F.Reynoso",
+                Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"//clave: 1234
+                
+
+                
+            });
+
+            modelBuilder.Entity<Usuarios>().HasData(new Usuarios
+            {
+                UsuarioId = 2,
+                Nombres = "Perla Canario",
+                NombreUsuario = "P.Canario",
+                Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"//clave: 1234
+
+
+            });
+
+           
 
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Consultas"
         mc:Ignorable="d"
-        Title="cCompras" Height="450" Width="800">
+        Title="Consulta de Compras" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,0,0">
             <StackPanel Orientation="Horizontal">

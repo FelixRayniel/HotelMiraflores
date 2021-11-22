@@ -49,11 +49,45 @@ namespace HotelMiraflores.UI.Registros
         {
             bool esValido = true;
 
+            
+
+            if (HabitacionIDTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un Numero de Id", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (TipoHabitacionComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un tipo de habitacion", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                TipoHabitacionComboBox.Focus();
+            }
+
+            if (NumeroTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un Numero de habitacion", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                NumeroTextBox.Focus();
+            }
+
+            if (PrecioTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un precio para la habitacion", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                PrecioTextBox.Focus();
+            }
+
             if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Ingrese la descripcion", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
+                DescripcionTextBox.Focus();
             }
 
             return esValido;

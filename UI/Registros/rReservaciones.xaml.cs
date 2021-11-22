@@ -147,16 +147,45 @@ namespace HotelMiraflores.UI.Registros
         {
             bool esValido = true;
 
-            if (ReservacionIDTextBox.Text.Length == 0)
+            if (ReservacionIDTextBox.Text == "0")
             {
                 esValido = false;
-                MessageBox.Show("INGRESE UN NUMERO DE ID", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ingrese un numero de Id", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
+            if (HuespedComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un huesped", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
+            if (CantidadPersonasTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese la cantidad de personas", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (CantidadDiasTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Pulse el botton Calcular dias para continuar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
             return esValido;
         }
+
+        public bool ValidarFecha()
+        {
+            bool esValido = true;
+
+            if (FechaEntradaDatePicker.SelectedDate > FechaSalidaDatePicker.SelectedDate)
+            {
+                esValido = false;
+                MessageBox.Show("La fecha de entrada no puede ser menor que la fecha de salida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            return esValido;
+        } 
 
         public float GetPrecioProducto(int id)
         {
@@ -203,6 +232,10 @@ namespace HotelMiraflores.UI.Registros
 
         private void CalcularDiasButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidarFecha())
+            {
+                return;
+            }
             TimeSpan ts = (FechaSalidaDatePicker.SelectedDate.Value - FechaEntradaDatePicker.SelectedDate.Value);
             int cantidadDias = (int)ts.TotalDays;
             Reservacion.CantidadDias = (cantidadDias);
@@ -227,7 +260,16 @@ namespace HotelMiraflores.UI.Registros
 
         private void TotalProductosTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CalcularTotalGeneral();
+            if (!ValidarFecha())
+            {
+                return;
+            }
+            else
+            {
+                CalcularTotalGeneral();
+            }
+
+            
         }
 
 

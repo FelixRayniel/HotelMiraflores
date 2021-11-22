@@ -25,20 +25,21 @@ namespace HotelMiraflores.UI.Registros
         public rUsuarios()
         {
             InitializeComponent();
-            this.DataContext = null;
-            Limpiar();
-
-
+            this.DataContext = Usuario;
+ 
             RolComboBox.ItemsSource = RolesBLL.GetRoles();
             RolComboBox.SelectedValuePath = "RolId";
             RolComboBox.DisplayMemberPath = "Descripcion";
+
+           
         }
 
         private void Limpiar()
         {
             this.Usuario = new Usuarios();
+            ClavePasswordBox.Password = string.Empty;
+            ConfirmarClavePasswordBox.Password = string.Empty;
             this.DataContext = Usuario;
-            ConfirmarClaveTextBox.Text = null;
         }
 
         public void Cargar()

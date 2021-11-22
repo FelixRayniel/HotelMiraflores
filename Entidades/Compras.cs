@@ -18,8 +18,7 @@ namespace HotelMiraflores.Entidades
         public float TotalCompra { get; set; }
         public int UsuarioId { get; set; }
 
-        [ForeignKey("ProductoId")]
-        public virtual Productos Producto { get; set; }
+       
 
         [ForeignKey("ComprasId")]
         public List<ComprasDetalle> ComprasDetalle { get; set; } = new List<ComprasDetalle>();

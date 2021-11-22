@@ -16,6 +16,8 @@ namespace HotelMiraflores.Entidades
         public int Cantidad { get; set; }
         public float CantidadDisponible { get; set; }
         public int UsuarioId { get; set; }
+        
+        [NotMapped]
         public float SubtotalCompra
         {
             get
@@ -23,8 +25,9 @@ namespace HotelMiraflores.Entidades
                 return Cantidad * Costo;
             }
         }
-        [ForeignKey("CompraId")]
-        public virtual Compras Compras { get; set; }
+
+        [ForeignKey("ProductoId")]
+        public virtual Productos Producto { get; set; }
 
         public ComprasDetalle()
         {

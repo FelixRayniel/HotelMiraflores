@@ -25,9 +25,6 @@ namespace HotelMiraflores.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ProductoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("SuplidorId")
                         .HasColumnType("INTEGER");
 
@@ -38,8 +35,6 @@ namespace HotelMiraflores.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CompraId");
-
-                    b.HasIndex("ProductoId");
 
                     b.ToTable("Compras");
                 });
@@ -53,13 +48,10 @@ namespace HotelMiraflores.Migrations
                     b.Property<int>("Cantidad")
                         .HasColumnType("INTEGER");
 
-                    b.Property<float>("CantidadDisponible")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("CompraId")
+                    b.Property<int>("CantidadDisponible")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ComprasId")
+                    b.Property<int>("CompraId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Costo")
@@ -75,7 +67,7 @@ namespace HotelMiraflores.Migrations
 
                     b.HasIndex("CompraId");
 
-                    b.HasIndex("ComprasId");
+                    b.HasIndex("ProductoId");
 
                     b.ToTable("ComprasDetalle");
                 });
@@ -422,28 +414,21 @@ namespace HotelMiraflores.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HotelMiraflores.Entidades.Compras", b =>
-                {
-                    b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId");
-
-                    b.Navigation("Producto");
-                });
-
             modelBuilder.Entity("HotelMiraflores.Entidades.ComprasDetalle", b =>
                 {
-                    b.HasOne("HotelMiraflores.Entidades.Compras", "Compras")
-                        .WithMany()
+                    b.HasOne("HotelMiraflores.Entidades.Compras", null)
+                        .WithMany("ComprasDetalle")
                         .HasForeignKey("CompraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HotelMiraflores.Entidades.Compras", null)
-                        .WithMany("ComprasDetalle")
-                        .HasForeignKey("ComprasId");
+                    b.HasOne("HotelMiraflores.Entidades.Productos", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Compras");
+                    b.Navigation("Producto");
                 });
 
             modelBuilder.Entity("HotelMiraflores.Entidades.ReservacionesDetalle", b =>

@@ -8,6 +8,22 @@ namespace HotelMiraflores.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Compras",
+                columns: table => new
+                {
+                    CompraId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    SuplidorId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TotalCompra = table.Column<float>(type: "REAL", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compras", x => x.CompraId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Departamentos",
                 columns: table => new
                 {
@@ -175,26 +191,33 @@ namespace HotelMiraflores.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Compras",
+                name: "ComprasDetalle",
                 columns: table => new
                 {
-                    CompraId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    SuplidorId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    TotalCompra = table.Column<float>(type: "REAL", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProductoId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CompraId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Costo = table.Column<float>(type: "REAL", nullable: false),
+                    Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
+                    CantidadDisponible = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Compras", x => x.CompraId);
+                    table.PrimaryKey("PK_ComprasDetalle", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Compras_Productos_ProductoId",
+                        name: "FK_ComprasDetalle_Compras_CompraId",
+                        column: x => x.CompraId,
+                        principalTable: "Compras",
+                        principalColumn: "CompraId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ComprasDetalle_Productos_ProductoId",
                         column: x => x.ProductoId,
                         principalTable: "Productos",
                         principalColumn: "ProductoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -224,37 +247,6 @@ namespace HotelMiraflores.Migrations
                         principalTable: "Reservaciones",
                         principalColumn: "ReservacionId",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ComprasDetalle",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CompraId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Costo = table.Column<float>(type: "REAL", nullable: false),
-                    Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
-                    CantidadDisponible = table.Column<float>(type: "REAL", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ComprasId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ComprasDetalle", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ComprasDetalle_Compras_CompraId",
-                        column: x => x.CompraId,
-                        principalTable: "Compras",
-                        principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ComprasDetalle_Compras_ComprasId",
-                        column: x => x.ComprasId,
-                        principalTable: "Compras",
-                        principalColumn: "CompraId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -303,19 +295,14 @@ namespace HotelMiraflores.Migrations
                 values: new object[] { 2, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "P.Canario", "Perla Canario", 0, null });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Compras_ProductoId",
-                table: "Compras",
-                column: "ProductoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_CompraId",
                 table: "ComprasDetalle",
                 column: "CompraId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ComprasDetalle_ComprasId",
+                name: "IX_ComprasDetalle_ProductoId",
                 table: "ComprasDetalle",
-                column: "ComprasId");
+                column: "ProductoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ReservacionesDetalle_ProductoId",
@@ -364,10 +351,10 @@ namespace HotelMiraflores.Migrations
                 name: "Compras");
 
             migrationBuilder.DropTable(
-                name: "Reservaciones");
+                name: "Productos");
 
             migrationBuilder.DropTable(
-                name: "Productos");
+                name: "Reservaciones");
         }
     }
 }

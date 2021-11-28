@@ -25,6 +25,15 @@ namespace HotelMiraflores.UI.Registros
         public rCompras()
         {
             InitializeComponent();
+            Limpiar();
+
+            SuplidorComboBox.ItemsSource = SuplidoresBLL.GetSuplidores();
+            SuplidorComboBox.SelectedValuePath = "SuplidorId";
+            SuplidorComboBox.DisplayMemberPath = "Nombre";
+
+            ProductoComboBox.ItemsSource = ProductosBLL.GetProductos();
+            ProductoComboBox.SelectedValuePath = "ProductoId";
+            ProductoComboBox.DisplayMemberPath = "Descripcion";
         }
         public void Limpiar()
         {
@@ -89,7 +98,17 @@ namespace HotelMiraflores.UI.Registros
 
             return 0;
         }
-        
+        public int GetCantidadDisponible(int Id)
+        {
+            Productos producto = ProductosBLL.Buscar(Id);
+            if (producto != null)
+            {
+                return producto.CantidadDisponible;
+            }
+
+            return 0;
+        }
+
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
@@ -156,7 +175,17 @@ namespace HotelMiraflores.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-            
+                compras.ComprasDetalle.Add(new ComprasDetalle
+               (
+                (int)ProductoComboBox.SelectedValue, Utilidades.ToInt(CompraIdTextBox.Text),
+                GetPrecioCosto((int)ProductoComboBox.SelectedValue),
+                Utilidades.ToInt(CantidadTextBox.Text), GetCantidadDisponible((int)ProductoComboBox.SelectedValue),
+                (Productos)ProductoComboBox.SelectedItem
+                ));
+            compras.TotalCompra += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioCosto((int)ProductoComboBox.SelectedValue));
+            Cargar();
         }
+
+       
     }
 }

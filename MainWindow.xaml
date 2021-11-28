@@ -18,7 +18,7 @@
                     <MenuItem x:Name="RegistroTipoHabitacionesMenuItem" Header="Registro de Tipo Habitacion" Click="RegistroTipoHabitacionesMenuItem_Click"/>
                     <MenuItem x:Name="RegistroHabitacionesMenuItem" Header="Registro de Habitacion" Click="RegistroHabitacionesMenuItem_Click"/>
                     <MenuItem x:Name="RegistroReservacionesMenuItem" Header="Registro de Reservaciones" Click="RegistroReservacionesMenuItem_Click"/>
-                    
+                    <MenuItem x:Name="RegistroComrasMenuItem" Header="Registro de Compras" Click="RegistroComrasMenuItem_Click"/>
                     
                 </MenuItem>
                 <MenuItem Header="Consultas">
@@ -30,7 +30,7 @@
                     <MenuItem x:Name="ConsultaTipoHabitacionesMenuItem" Header="Consulta de Tipo Habitacion" Click="ConsultaTipoHabitacionesMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaHabitacionesMenuItem" Header="Consulta de Habitacion" Click="ConsultaHabitacionesMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaReservacionesMenuItem" Header="Consulta de Reservaciones" Click="ConsultaReservacionesMenuItem_Click"/>
-                    
+                    <MenuItem x:Name="ConsultaComprasMenuItem" Header="Consulta de Compras" Click="ConsultaComprasMenuItem_Click"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

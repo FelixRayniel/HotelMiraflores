@@ -20,7 +20,7 @@ namespace HotelMiraflores.Entidades
 
        
 
-        [ForeignKey("ComprasId")]
+        [ForeignKey("CompraId")]
         public List<ComprasDetalle> ComprasDetalle { get; set; } = new List<ComprasDetalle>();
 
     }

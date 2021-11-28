@@ -14,7 +14,7 @@ namespace HotelMiraflores.Entidades
         public int CompraId { get; set; }
         public float Costo { get; set; }
         public int Cantidad { get; set; }
-        public float CantidadDisponible { get; set; }
+        public int CantidadDisponible { get; set; }
         public int UsuarioId { get; set; }
         
         [NotMapped]
@@ -39,7 +39,7 @@ namespace HotelMiraflores.Entidades
             CantidadDisponible = 0;
         }
 
-        public ComprasDetalle(int productoId, int compraId, float costo, int cantidad, float cantidadDisponible)
+        public ComprasDetalle(int productoId, int compraId, float costo, int cantidad, int cantidadDisponible, Productos producto)
         {
             Id = 0;
             ProductoId = productoId;
@@ -47,6 +47,7 @@ namespace HotelMiraflores.Entidades
             Costo = costo;
             Cantidad = cantidad;
             CantidadDisponible = cantidadDisponible;
+            Producto = producto;
         }
     }
 }

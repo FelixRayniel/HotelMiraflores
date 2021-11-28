@@ -30,7 +30,7 @@ namespace HotelMiraflores.BLL
 
                 foreach (var detalle in compras.ComprasDetalle)
                 {
-                    contexto.Entry(detalle.Compras).State = EntityState.Modified;
+                    contexto.Entry(detalle.CompraId).State = EntityState.Modified;
                 }
 
                 paso = contexto.SaveChanges() > 0;
@@ -54,7 +54,7 @@ namespace HotelMiraflores.BLL
             {
                 var ProyectoAnterior = contexto.Compras
                     .Where(x => x.CompraId == compras.CompraId)
-                    .Include(x => x.ComprasDetalle).ThenInclude(x => x.Compras)
+                    .Include(x => x.ComprasDetalle).ThenInclude(x => x.CompraId)
                     .AsNoTracking()
                     .SingleOrDefault();
 
@@ -62,7 +62,7 @@ namespace HotelMiraflores.BLL
 
                 foreach (var detalle in ProyectoAnterior.ComprasDetalle)
                 {
-                    contexto.Entry(detalle.Compras).State = EntityState.Modified;
+                    contexto.Entry(detalle.CompraId).State = EntityState.Modified;
 
                 }
 
@@ -113,7 +113,7 @@ namespace HotelMiraflores.BLL
             try
             {
                 compras = contexto.Compras.Include(x => x.ComprasDetalle)
-                .Where(x => x.CompraId == id).Include(x => x.ComprasDetalle).ThenInclude(x => x.Compras)
+                .Where(x => x.CompraId == id).Include(x => x.ComprasDetalle).ThenInclude(x => x.CompraId)
                 .SingleOrDefault();
             }
             catch (Exception)

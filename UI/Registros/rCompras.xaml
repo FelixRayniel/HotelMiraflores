@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Compras" Height="735" Width="600">
-    <Grid Margin="0,0,0,7">
+        Title="Registro de Compras" Height="765" Width="600">
+    <Grid>
 
         <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
             <StackPanel Orientation="Vertical">
                 <Label Content="Compra Id: "/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="CompraIdTextBox" Width="87" Height="23" Text="{Binding CompraId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="30"  VerticalContentAlignment="Top" Width="76">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="36"  VerticalContentAlignment="Top" Width="105">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar" />
@@ -36,7 +36,7 @@
                         <Label Content="Id de Producto: "/>
                         <StackPanel Orientation="Horizontal" Height="32">
                             <TextBox x:Name="BuscarProductoTextBox" Width="166" Height="23"  />
-                            <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="30"  VerticalContentAlignment="Top">
+                            <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="34"  VerticalContentAlignment="Top" Width="172">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/Resources/icons8-google-web-search-24.png" />
                                     <Label Content="Buscar Producto" />
@@ -66,7 +66,7 @@
                 </StackPanel>
 
 
-                <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ReservacionDetalle}" Height="204" AutoGenerateColumns="False" >
+                <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding CompraDetalle}" Height="204" AutoGenerateColumns="False"  >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Producto " Binding="{Binding Producto.ProductoId}" />
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
@@ -96,7 +96,7 @@
                             <Label Content="Guardar" />
                         </StackPanel>
                     </Button>
-                    <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click" Width="111">
+                    <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click" Width="128">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-eliminar-16.png" Height="29" Width="31" />
                             <Label Content="Eliminar" Height="26" />

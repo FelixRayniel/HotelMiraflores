@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-       Title="Registro de Usuarios" Height="517" Width="400">
+       Title="Registro de Usuarios" Height="560" Width="589">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Usuario Id: "/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="UsuarioIDTextBox" Width="87" Height="23" Text="{Binding UsuarioId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="39"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar" />
@@ -22,32 +22,32 @@
 
 
                 <Label Content="Nombres: "/>
-                <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" />
+                <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" Width="332" HorizontalAlignment="Left" />
 
                 <Label Content="Nombre de usuario: "/>
-                <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}" />
+                <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}" Width="259" Cursor="IBeam" HorizontalAlignment="Left" />
 
                 <Label Content="Contraseña: "/>
-                <TextBox x:Name="ClaveTextBox" Text="{Binding Clave}"  />
+                <TextBox x:Name="ClaveTextBox" Text="{Binding Clave}" Width="287" HorizontalAlignment="Left"  />
 
                 <Label Content="Confirmar Contraseña: "/>
-                <TextBox x:Name="ConfirmarClaveTextBox" />
-                
+                <TextBox x:Name="ConfirmarClaveTextBox" Width="349" HorizontalAlignment="Left" />
+
                 <Label Content="Rol: "/>
-                <ComboBox x:Name="RolComboBox" SelectedValue ="{Binding RolId}"   />
+                <ComboBox x:Name="RolComboBox" SelectedValue ="{Binding RolId}" Width="407" HorizontalAlignment="Left"   />
 
                 <Label Content="Email: "/>
-                <TextBox x:Name="EmailTextBox" Text="{Binding Email}" />
+                <TextBox x:Name="EmailTextBox" Text="{Binding Email}" Width="494" HorizontalAlignment="Left" />
 
                 <Label Content="Telefono: "/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" />
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" Width="290" HorizontalAlignment="Left" />
 
                 <Label Content="Direccion: "/>
-                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" />
+                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" Width="494" HorizontalAlignment="Left" />
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" Width="270" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" Width="386" HorizontalAlignment="Center" Height="38" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

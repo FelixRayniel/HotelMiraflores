@@ -15,7 +15,7 @@
                     <Label Content="Reservacion Id: "/>
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionId}" />
-                        <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="30"  VerticalContentAlignment="Top" Width="76">
+                        <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="36"  VerticalContentAlignment="Top" Width="117">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/icons8-google-web-search-24.png" />
                                 <Label Content="Buscar" />
@@ -34,7 +34,7 @@
                             <Label Content="Numero de Cedula: "/>
                             <StackPanel Orientation="Horizontal" Height="32">
                                 <TextBox x:Name="BuscarCedulaTextBox" Width="166" Height="23"  />
-                                <Button x:Name="BuscarCedulaButton" Margin="5,0" Click="BuscarCedulaButton_Click" Height="30"  VerticalContentAlignment="Top">
+                                <Button x:Name="BuscarCedulaButton" Margin="5,0" Click="BuscarCedulaButton_Click" Height="35"  VerticalContentAlignment="Top" Width="166">
                                     <StackPanel Orientation="Horizontal">
                                         <Image Source="/Resources/icons8-google-web-search-24.png" />
                                         <Label Content="Buscar Huesped" />
@@ -62,10 +62,10 @@
 
                     <Label Content="Cantidad de Dias: "/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="CantidadDiasTextBox" Text="{Binding CantidadDias}" IsReadOnly="True" Width="99" Height="18" />
-                        <Button x:Name="CalcularDiasButton" Margin="5,0" Click="CalcularDiasButton_Click" Height="30"  VerticalContentAlignment="Top" Width="94">
+                        <TextBox x:Name="CantidadDiasTextBox" Text="{Binding CantidadDias}" IsReadOnly="True" Width="99" Height="30" />
+                        <Button x:Name="CalcularDiasButton" Margin="5,0" Click="CalcularDiasButton_Click" Height="32"  VerticalContentAlignment="Top" Width="87">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Calcular Dias" />
+                                <Label Content="Calcular Dias" Height="29" Width="62" />
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -73,7 +73,7 @@
                     <Label Content="Comentarios de la Reservacion: "/>
                     <TextBox x:Name="ComentariosTextBox" Text="{Binding Comentarios}" Height="81" Width="604" HorizontalAlignment="Left" />
 
-                    <GroupBox x:Name="ReservacionDetalleGroupBox" Header="Servicios Adicionales" Height="374">
+                    <GroupBox x:Name="ReservacionDetalleGroupBox" Header="Servicios Adicionales" Height="384">
 
                         <StackPanel>
                             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Width="546" Height="63">
@@ -89,7 +89,7 @@
                                     <Label Content="Cantidad: "/>
                                     <TextBox x:Name="CantidadTextBox" Text="{Binding ReservacionDetalle.Cantidad}" Height="21"     />
                                 </StackPanel>
-                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123" VerticalAlignment="Bottom">
+                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123" VerticalAlignment="Bottom" Height="34">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Agregar"/>
                                     </StackPanel>
@@ -107,7 +107,7 @@
 
                             </DataGrid>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="115" HorizontalAlignment="Left">
+                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="115" Height="34">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Eliminar"/>
                                     </StackPanel>
@@ -130,9 +130,9 @@
 
                         <Label Content=" Descuentos:" Height="24"/>
                         <TextBox x:Name="DescuentosTextBox" Text="{Binding Descuentos}" Width="150" Height="27" />
-                        <Button x:Name="DescuentoButton" Margin="5,0" Click="DescuentoButton_Click" Height="27"  VerticalContentAlignment="Top">
+                        <Button x:Name="DescuentoButton" Margin="5,0" Click="DescuentoButton_Click" Height="38"  VerticalContentAlignment="Top" Width="153">
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="Aplicar Descuento" Height="26" Width="111" />
+                                <Label Content="Aplicar Descuento" Height="26" Width="131" />
                             </StackPanel>
                         </Button>
 

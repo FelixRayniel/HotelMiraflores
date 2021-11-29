@@ -12,7 +12,7 @@
                 <Label Content="Habitacion Id: "/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="HabitacionIDTextBox" Width="87" Height="23" Text="{Binding HabitacionId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="32"  VerticalContentAlignment="Top" Width="106">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar" />

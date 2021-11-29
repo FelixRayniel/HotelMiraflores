@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Huespedes" Height="370" Width="400">
+        Title="Registro de Huespedes" Height="390" Width="400">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Huesped ID: "/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="HuespedIDTextBox" Width="87" Height="23" Text="{Binding HuespedId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar" />

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores"
         mc:Ignorable="d"
-         Title="Menu Principal" Height="450" Width="800">
+         Title="Menu Principal" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <StackPanel>
-            <Menu Height="18">
+            <Menu Height="48">
                 <MenuItem Header="Registros">
                     <MenuItem x:Name="RegistroUsuariosMenuItem" Header="Registro de Usuarios" Click="RegistroUsuariosMenuItem_Click"/>
                     <MenuItem x:Name="RegistroHuespedesMenuItem" Header="Registro de Huespedes" Click="RegistroHuespedesMenuItem_Click"/>
@@ -19,10 +19,10 @@
                     <MenuItem x:Name="RegistroHabitacionesMenuItem" Header="Registro de Habitacion" Click="RegistroHabitacionesMenuItem_Click"/>
                     <MenuItem x:Name="RegistroReservacionesMenuItem" Header="Registro de Reservaciones" Click="RegistroReservacionesMenuItem_Click"/>
                     <MenuItem x:Name="RegistroComrasMenuItem" Header="Registro de Compras" Click="RegistroComrasMenuItem_Click"/>
-                    
+
                 </MenuItem>
                 <MenuItem Header="Consultas">
-
+                    <MenuItem x:Name="ConsultaUsuariosMenuItem" Header="Consulta de Usuarios" Click="ConsultaUsuariosMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaHuespedesMenuItem" Header="Consulta de Huespedes" Click="ConsultaHuespedesMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaSuplidoresMenuItem" Header="Consulta de Suplidores" Click="ConsultaSuplidoresMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaMarcasMenuItem" Header="Consulta de Marcas" Click="ConsultaMarcasMenuItem_Click"/>
@@ -32,7 +32,42 @@
                     <MenuItem x:Name="ConsultaReservacionesMenuItem" Header="Consulta de Reservaciones" Click="ConsultaReservacionesMenuItem_Click"/>
                     <MenuItem x:Name="ConsultaComprasMenuItem" Header="Consulta de Compras" Click="ConsultaComprasMenuItem_Click"/>
                 </MenuItem>
+
+                <MenuItem Header="Ayuda">
+
+                </MenuItem>
             </Menu>
+        </StackPanel>
+
+        <Label Content="Hotel MiraFlores" Margin="0,76,0,276" HorizontalAlignment="Center" Width="449" FontSize="48" FontFamily="Arial Black"></Label>
+
+        <StackPanel Orientation="Horizontal" Margin="0,157,0,186" HorizontalAlignment="Center">
+            <Button x:Name="HuespedButton" Height="59" Width="200" Click="RegistroHuespedesMenuItem_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Registrar Huesped" FontFamily="Arial Black"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="ReservacionButton" Height="59" Width="200" Click="RegistroReservacionesMenuItem_Click" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Hacer Reservacion" FontFamily="Arial Black"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,259,0,100" HorizontalAlignment="Center">
+
+            <Button x:Name="ProductosButton" Height="59" Width="200" Click="RegistroProductosMenuItem_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Registrar Productos" FontFamily="Arial Black"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="CompraButton" Height="59" Width="200" Click="RegistroComrasMenuItem_Click" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Hacer Compra" FontFamily="Arial Black"/>
+                </StackPanel>
+            </Button>
+
         </StackPanel>
     </Grid>
 </Window>

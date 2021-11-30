@@ -110,7 +110,8 @@ namespace HotelMiraflores
 
         private void ConsultaReservacionesMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cReservaciones cr = new cReservaciones();
+            cr.Show();
         }
 
         private void RegistroUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
@@ -130,5 +131,13 @@ namespace HotelMiraflores
             cCompras rp = new cCompras();
             rp.Show();
         }
+
+        private void ConsultaUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cUsuarios cu = new cUsuarios();
+            cu.Show();
+        }
+
+       
     }
 }

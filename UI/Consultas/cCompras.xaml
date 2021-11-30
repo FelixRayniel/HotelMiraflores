@@ -8,7 +8,7 @@
         Title="Consulta de Compras" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,0,0">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Height="61">
                 <StackPanel Margin="5,0">
                     <Label Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
@@ -22,10 +22,9 @@
                     <Label Content="Critero:"/>
                     <TextBox x:Name="CriterioTextBox" Width="100" Height="25"/>
                 </StackPanel>
-
-                <Button x:Name="BuscarButton" Height="32" Width="125" Margin="0,20,0,0" Click="BuscarButton_Click">
+                <Button x:Name="BuscarButton" Height="32" Width="125" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="36" Height="21" Source="/Resources/icons8-google-web-search-24.png"/>
+                        <Image Source="/Resources/zoom1.png"/>
                         <Label Content="Buscar"/>
                     </StackPanel>
                 </Button>
@@ -33,7 +32,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left">
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="527" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Compras}">
+                <DataGrid x:Name="DatosDataGrid" Height="251" Width="757" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Compras}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Compras Id" Binding="{Binding CompraId}" />
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}" />

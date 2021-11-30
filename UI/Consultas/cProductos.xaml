@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Consultas"
         mc:Ignorable="d"
-        Title="cProductos" Height="450" Width="700">
-    <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
-            <StackPanel Orientation="Horizontal">
+        Title="Consulta de Productos" Height="450" Width="1028">
+    <Grid Margin="0,0,0,9">
+        <StackPanel Orientation="Vertical" Margin="10,10,10,71">
+            <StackPanel Orientation="Horizontal" Height="67">
                 <StackPanel Margin="5,0">
                     <Label Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
@@ -23,10 +23,9 @@
                     <Label Content="Critero:"/>
                     <TextBox x:Name="CriterioTextBox" Width="100" Height="25"/>
                 </StackPanel>
-
-                <Button x:Name="BuscarButton" Height="34" Width="144" Margin="0,20,0,0" Click="BuscarButton_Click">
+                <Button x:Name="BuscarButton" Height="40" Width="127" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="36" Height="21" Source="/Resources/icons8-google-web-search-24.png"/>
+                        <Image Source="/Resources/zoom1.png"></Image>
                         <Label Content="Buscar"/>
                     </StackPanel>
                 </Button>
@@ -34,7 +33,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left">
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="636" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Productos}">
+                <DataGrid x:Name="DatosDataGrid" Height="271" Width="970" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Productos}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Producto ID" Binding="{Binding ProductoId}" />
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Descripcion}" />
@@ -44,7 +43,7 @@
                         <DataGridTextColumn Header="Unidad" Binding="{Binding Unidad}"/>
                         <DataGridTextColumn Header="Precio de costo" Binding="{Binding PrecioCosto}"/>
                         <DataGridTextColumn Header="Precio de venta" Binding="{Binding PrecioVenta}"/>
-                        <DataGridTextColumn Header="Cantidad" Binding="{Binding CantidadDisponible}"/>
+                        <DataGridTextColumn Header="Cantidad Disponible" Binding="{Binding CantidadDisponible}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

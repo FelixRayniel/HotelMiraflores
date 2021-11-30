@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Consultas"
         mc:Ignorable="d"
-        Title="cMarcas" Height="350" Width="584">
+        Title="Consulta de Marcas" Height="350" Width="584">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,0,0">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Height="68">
                 <StackPanel Margin="5,0">
                     <Label Content="Filtro:"/>
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
@@ -23,9 +23,9 @@
                     <TextBox x:Name="CriterioTextBox" Width="100" Height="25"/>
                 </StackPanel>
 
-                <Button x:Name="BuscarButton" Height="36" Width="120" Margin="0,20,0,0" Click="BuscarButton_Click">
+                <Button x:Name="BuscarButton" Height="36" Width="120" Margin="0,20,0,0" Click="BuscarButton_Click" VerticalAlignment="Top">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="36" Height="21" Source="/Resources/icons8-google-web-search-24.png"/>
+                        <Image Source="/Resources/zoom1.png"></Image>
                         <Label Content="Buscar"/>
                     </StackPanel>
                 </Button>
@@ -33,7 +33,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left">
-                <DataGrid x:Name="DatosDataGrid" Height="240" Width="527" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Marcas}">
+                <DataGrid x:Name="DatosDataGrid" Height="187" Width="475" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Marcas}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Marca ID" Binding="{Binding MarcaId}" />
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>

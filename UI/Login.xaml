@@ -20,8 +20,8 @@
 
                 <PasswordBox x:Name="ContrasenaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
-                    <Button x:Name="IngresarButton" Content="Ingresar" Margin="5,0" Click="IngresarButton_Click"/>
-                    <Button x:Name="CancelarButton"   Click="CancelarButton_Click">
+                    <Button x:Name="IngresarButton" Content="Ingresar" Margin="5,0" Click="IngresarButton_Click" Height="34" Width="89"/>
+                    <Button x:Name="CancelarButton"   Click="CancelarButton_Click" Height="34" Width="94">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Cancelar" />
                         </StackPanel>

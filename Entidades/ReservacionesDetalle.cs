@@ -43,7 +43,7 @@ namespace HotelMiraflores.Entidades
         public ReservacionesDetalle(int reservacionid, int cantidad, float precio, Productos producto)
         {
             Id = 0;
-            ReservacionId = ReservacionId;
+            ReservacionId = reservacionid;
             Cantidad = cantidad;
             Precio = precio;
             Producto = producto;

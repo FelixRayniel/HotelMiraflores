@@ -62,7 +62,7 @@ namespace HotelMiraflores.BLL
 
                 foreach (var detalle in ReservacionAnterior.ReservacionDetalle)
                 {
-                    detalle.Producto.CantidadDisponible += detalle.Cantidad;
+                   detalle.Producto.CantidadDisponible += detalle.Cantidad;
                     
                 }
 
@@ -71,8 +71,10 @@ namespace HotelMiraflores.BLL
                 foreach (var item in Reservacion.ReservacionDetalle)
                 {
                     contexto.Entry(item).State = EntityState.Added;
-                    contexto.Entry(item.Producto).State = EntityState.Modified;
                     item.Producto.CantidadDisponible -= item.Cantidad;
+                    
+                   
+                    
                     
                 }
 
@@ -100,11 +102,18 @@ namespace HotelMiraflores.BLL
 
                     if (Reservacion != null)
                     {
-                        contexto.Reservaciones.Remove(Reservacion);
+                    foreach (var detalle in Reservacion.ReservacionDetalle)
+                    {
+                        detalle.Producto.CantidadDisponible += detalle.Cantidad;
+                        contexto.Entry(detalle.Producto).State = EntityState.Modified;
+                    }
+                    contexto.Reservaciones.Remove(Reservacion);
                         paso = contexto.SaveChanges() > 0;
                     }
 
-                }
+                    
+
+            }
                 catch (Exception)
                 {
                     throw;

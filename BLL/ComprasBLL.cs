@@ -97,6 +97,12 @@ namespace HotelMiraflores.BLL
 
                 if (Compra != null)
                 {
+                    foreach (var detalle in Compra.ComprasDetalle)
+                    {
+                        detalle.Producto.CantidadDisponible -= detalle.Cantidad;
+                        contexto.Entry(detalle.Producto).State = EntityState.Modified;
+                    }
+
                     contexto.Compras.Remove(Compra);
                     paso = contexto.SaveChanges() > 0;
                 }

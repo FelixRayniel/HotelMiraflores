@@ -5,104 +5,111 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Compras" Height="765" Width="600">
+        Title="Registro de Compras" Height="824" Width="600">
     <Grid>
 
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Vertical">
-                <Label Content="Compra Id: "/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="CompraIdTextBox" Width="87" Height="23" Text="{Binding CompraId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="36"  VerticalContentAlignment="Top" Width="105">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resources/icons8-google-web-search-24.png" />
-                            <Label Content="Buscar" />
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
+        <ScrollViewer>
 
-                <StackPanel Height="57">
-                    <Label Content="Fecha de Compra:"/>
-                    <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Width="278" HorizontalAlignment="Left" />
-
-                </StackPanel>
-
-                <Label Content="Suplidor: "/>
-                <ComboBox x:Name="SuplidorComboBox" SelectedValue ="{Binding SuplidorId}" Width="252" HorizontalAlignment="Left"  />
-
-                <GroupBox x:Name="InformacionProducto" Header="Informacion del Producto">
-
-                    <StackPanel>
-                        <Label Content="Id de Producto: "/>
-                        <StackPanel Orientation="Horizontal" Height="32">
-                            <TextBox x:Name="BuscarProductoTextBox" Width="166" Height="23"  />
-                            <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="34"  VerticalContentAlignment="Top" Width="172">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Resources/icons8-google-web-search-24.png" />
-                                    <Label Content="Buscar Producto" />
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                        <Label Content="Producto:"/>
-                        <ComboBox x:Name="ProductoComboBox" Width="280" HorizontalAlignment="Left" SelectedValue="{Binding ProductoId}"/>
-
-                        <Label Content="Cantidad: "/>
-                        <TextBox x:Name="CantidadTextBox" Text="{Binding Cantidad}" Width="197" HorizontalAlignment="Left" />
-
+            <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Compra Id: "/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="CompraIdTextBox" Width="87" Height="23" Text="{Binding CompraId}" />
+                        <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="36"  VerticalContentAlignment="Top" Width="105">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icons8-google-web-search-24.png" />
+                                <Label Content="Buscar" />
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
 
-                </GroupBox>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="AgregarFilaButton" Click="AgregarFilaButton_Click" Width="123" Margin="10" HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Agregar"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="EliminarFilaButton" Margin="10" Click="EliminarFilaButton_Click" Width="123"  HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
+                    <StackPanel Height="57">
+                        <Label Content="Fecha de Compra:"/>
+                        <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Width="278" HorizontalAlignment="Left" />
+
+                    </StackPanel>
+                    <StackPanel Height="60">
+                        <Label Content="Suplidor: "/>
+                        <ComboBox x:Name="SuplidorComboBox" SelectedValue ="{Binding SuplidorId}" Width="252" HorizontalAlignment="Left"  />
+                    </StackPanel>
 
 
-                <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ComprasDetalle}" Height="204" AutoGenerateColumns="False"  >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Producto " Binding="{Binding Producto.ProductoId}" />
-                        <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
-                        <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
-                        <DataGridTextColumn Header="Precio" Binding="{Binding Costo}" />
-                        <DataGridTextColumn Header="Total Producto" Binding="{Binding SubtotalCompra}" />
-                    </DataGrid.Columns>
+                    <GroupBox x:Name="InformacionProducto" Header="Informacion del Producto">
 
-                </DataGrid>
+                        <StackPanel>
+                            <Label Content="Id de Producto: "/>
+                            <StackPanel Orientation="Horizontal" Height="38">
+                                <TextBox x:Name="BuscarProductoTextBox" Width="166" Height="23"  />
+                                <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="34"  VerticalContentAlignment="Top" Width="172">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Resources/icons8-google-web-search-24.png" />
+                                        <Label Content="Buscar Producto" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                            <Label Content="Producto:"/>
+                            <ComboBox x:Name="ProductoComboBox" Width="280" HorizontalAlignment="Left" SelectedValue="{Binding ProductoId}"/>
 
-                <StackPanel Orientation="Horizontal" Width="259" Margin="80,0,0,0" >
-                    <Label Content=" Total de Compra:" Height="27"/>
-                    <TextBox x:Name="SubtotalCompraTextBox" Text="{Binding TotalCompra}"  Width="136" Height="26" IsReadOnly="True" />
-                </StackPanel>
+                            <Label Content="Cantidad: "/>
+                            <TextBox x:Name="CantidadTextBox" Text="{Binding Cantidad}" Width="197" HorizontalAlignment="Left" />
 
-                <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" Width="362" Height="49" >
-                    <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click" Width="111">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
-                            <Label Content="Nuevo" />
                         </StackPanel>
-                    </Button>
-                    <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" Width="111">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
-                            <Label Content="Guardar" />
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click" Width="128">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resources/icons8-eliminar-16.png" Height="29" Width="31" />
-                            <Label Content="Eliminar" Height="26" />
-                        </StackPanel>
-                    </Button>
+
+                    </GroupBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="62" Width="296">
+                        <Button x:Name="AgregarFilaButton" Click="AgregarFilaButton_Click" Width="124" Margin="10" Height="34">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Agregar"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="EliminarFilaButton" Margin="10" Click="EliminarFilaButton_Click" Width="127" Height="34">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+
+                    <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding ComprasDetalle}" Height="204" AutoGenerateColumns="False"  >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Producto " Binding="{Binding Producto.ProductoId}" />
+                            <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.Descripcion}" />
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Costo}" />
+                            <DataGridTextColumn Header="Total Producto" Binding="{Binding SubtotalCompra}" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" Width="259" Margin="80,0,0,0" >
+                        <Label Content=" Total de Compra:" Height="27"/>
+                        <TextBox x:Name="SubtotalCompraTextBox" Text="{Binding TotalCompra}"  Width="136" Height="26" IsReadOnly="True" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" Width="411" Height="52" >
+                        <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click" Width="112" Height="34">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
+                                <Label Content="Nuevo" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="GuardarButton"   Margin="5,0" Click="GuardarButton_Click" Width="117" Height="34">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                                <Label Content="Guardar" />
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="EliminarButton"  Margin="5,0" Click="EliminarButton_Click" Width="131" Height="34">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/icons8-eliminar-16.png" Height="29" Width="31" />
+                                <Label Content="Eliminar" Height="26" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
+
+
+        </ScrollViewer>
     </Grid>
 </Window>

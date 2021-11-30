@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registros de Productos" Height="530" Width="484">
+        Title="Registros de Productos" Height="557" Width="484">
     <Grid Margin="0,0,0,-6">
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
@@ -38,7 +38,7 @@
 
                 
                 <Label Content="Precio de Costo: "/>
-                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="20" Width="151"  HorizontalAlignment="Left" />
+                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="26" Width="151"  HorizontalAlignment="Left" />
 
                 <Label Content="Precio de venta: "/>
                 <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" Height="24" Width="149" HorizontalAlignment="Left" />

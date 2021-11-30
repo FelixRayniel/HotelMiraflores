@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Habitaciones" Height="388" Width="400">
+        Title="Registro de Habitaciones" Height="394" Width="400">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Habitacion Id: "/>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="33">
                     <TextBox x:Name="HabitacionIDTextBox" Width="87" Height="23" Text="{Binding HabitacionId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top" Width="112">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
-                            <Label Content="Buscar" />
+                            <Label Content="Buscar" Width="57" Height="23" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -40,7 +40,7 @@
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" Height="42" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

@@ -10,17 +10,17 @@
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Suplidor Id: "/>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Height="36">
                     <TextBox x:Name="SuplidorIDTextBox" Width="87" Height="23" Text="{Binding SuplidorId}" />
-                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="27"  VerticalContentAlignment="Top">
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top" Width="104">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
                             <Label Content="Buscar" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                
-                
+
+
                 <Label Content="Nombre: "/>
                 <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" />
 

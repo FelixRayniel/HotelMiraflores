@@ -155,8 +155,8 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                ReservacionesBLL.Eliminar(compras.CompraId);
-                MessageBox.Show("PROYECTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                ComprasBLL.Eliminar(compras.CompraId);
+                MessageBox.Show("COMPRA ELIMINADA", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
         }

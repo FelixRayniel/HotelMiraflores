@@ -87,6 +87,7 @@ namespace HotelMiraflores.UI.Registros
                 ));
             Reservacion.TotalProductos += Convert.ToInt32(float.Parse(CantidadTextBox.Text) * GetPrecioProducto((int)ProductosComboBox.SelectedValue));
             Cargar();
+
         }
 
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
@@ -117,11 +118,11 @@ namespace HotelMiraflores.UI.Registros
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("SE HA GUARDADO EL PROYECTO EXISTOSAMENTE", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("SE HA GUARDADO LA RESERVACION EXISTOSAMENTE", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("NO SE PUDO GUARDAR EL PROYECTO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("NO SE PUDO GUARDAR LA RESERVACION", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -137,7 +138,7 @@ namespace HotelMiraflores.UI.Registros
             else
             {
                 ReservacionesBLL.Eliminar(Reservacion.ReservacionId);
-                MessageBox.Show("PROYECTO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("RESERVACION ELIMINADA", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
 

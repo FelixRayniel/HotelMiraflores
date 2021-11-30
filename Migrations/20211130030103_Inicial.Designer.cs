@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211128041242_Inicial")]
+    [Migration("20211130030103_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -401,18 +401,27 @@ namespace HotelMiraflores.Migrations
                             UsuarioId = 1,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
                             Email = "",
-                            NombreUsuario = "F.Reynoso",
-                            Nombres = "Felix Reynoso",
-                            RolId = 0
+                            NombreUsuario = "admin",
+                            Nombres = "Profesor",
+                            RolId = 1
                         },
                         new
                         {
                             UsuarioId = 2,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
                             Email = "",
+                            NombreUsuario = "F.Reynoso",
+                            Nombres = "Felix Reynoso",
+                            RolId = 1
+                        },
+                        new
+                        {
+                            UsuarioId = 3,
+                            Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+                            Email = "",
                             NombreUsuario = "P.Canario",
                             Nombres = "Perla Canario",
-                            RolId = 0
+                            RolId = 1
                         });
                 });
 

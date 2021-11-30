@@ -399,18 +399,27 @@ namespace HotelMiraflores.Migrations
                             UsuarioId = 1,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
                             Email = "",
-                            NombreUsuario = "F.Reynoso",
-                            Nombres = "Felix Reynoso",
-                            RolId = 0
+                            NombreUsuario = "admin",
+                            Nombres = "Profesor",
+                            RolId = 1
                         },
                         new
                         {
                             UsuarioId = 2,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
                             Email = "",
+                            NombreUsuario = "F.Reynoso",
+                            Nombres = "Felix Reynoso",
+                            RolId = 1
+                        },
+                        new
+                        {
+                            UsuarioId = 3,
+                            Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+                            Email = "",
                             NombreUsuario = "P.Canario",
                             Nombres = "Perla Canario",
-                            RolId = 0
+                            RolId = 1
                         });
                 });
 

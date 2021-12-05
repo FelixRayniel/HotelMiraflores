@@ -28,6 +28,9 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             Limpiar();
 
+            suplidor.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
         }
 
         private void Limpiar()
@@ -48,7 +51,7 @@ namespace HotelMiraflores.UI.Registros
             if (SuplidorIDTextBox.Text == "0")
             {
                 esValido = false;
-                MessageBox.Show("Ingrese un Id", "Fallo",
+                MessageBox.Show("Ingrese un Id diferente de 0", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
@@ -63,6 +66,13 @@ namespace HotelMiraflores.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Ingrese un telefono", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (TelefonoTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length != 10)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de Telefono incompleto (Debe de tener 10 digitos)", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
@@ -135,6 +145,12 @@ namespace HotelMiraflores.UI.Registros
 
         }
 
-
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
     }
 }

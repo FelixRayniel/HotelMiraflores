@@ -61,7 +61,7 @@ namespace HotelMiraflores.UI.Registros
             else
             {
                 Limpiar();
-                MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se pudo encontrar el registro en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -75,13 +75,12 @@ namespace HotelMiraflores.UI.Registros
             }
             else
             {
-                MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se pudo encontar el producto en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private void CalcularCantidadButton_Click(object sender, RoutedEventArgs e)
         {
-            
             Cargar();
         }
         public void CalcularTotal()
@@ -136,11 +135,50 @@ namespace HotelMiraflores.UI.Registros
         {
             bool esValido = true;
 
-            if (CompraIdTextBox.Text.Length == 0)
+            if (CompraIdTextBox.Text == "0")
             {
                 esValido = false;
-                MessageBox.Show("INGRESE UN NUMERO DE ID", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ingrese un numero de Id diferente", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            if (SuplidorComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un suplidor", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return esValido;
+        }
+
+        private bool ValidarAgregarButton()
+        {
+            bool esValido = true;
+
+            if (ProductoComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Busque o seleccione un producto", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+
+            if (CantidadTextBox.Text.Length == 0 || CantidadTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese una cantidad", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            return esValido;
+        }
+
+        private bool ValidarEliminarButton()
+        {
+            bool esValido = true;
+
+            if (DetalleDataGrid.SelectedItem == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un produto para poder eliminarlo", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             return esValido;
         }
 
@@ -150,19 +188,26 @@ namespace HotelMiraflores.UI.Registros
 
             if (CompraEncontrada == null)
             {
-                MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se pudo encontrar el registro en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             else
             {
                 ComprasBLL.Eliminar(compras.CompraId);
-                MessageBox.Show("COMPRA ELIMINADA", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Compra eliminada", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
         }
 
+        
+
         private void EliminarFilaButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidarEliminarButton())
+            {
+                return;
+            }
+
             if (DetalleDataGrid.Items.Count >= 1 &&
                 DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
@@ -175,7 +220,12 @@ namespace HotelMiraflores.UI.Registros
 
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-                compras.ComprasDetalle.Add(new ComprasDetalle
+            if (!ValidarAgregarButton())
+            {
+                return;
+            }
+                
+            compras.ComprasDetalle.Add(new ComprasDetalle
                (
                 (int)ProductoComboBox.SelectedValue, Utilidades.ToInt(CompraIdTextBox.Text),
                 GetPrecioCosto((int)ProductoComboBox.SelectedValue),
@@ -186,6 +236,14 @@ namespace HotelMiraflores.UI.Registros
             Cargar();
         }
 
-       
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+
     }
 }

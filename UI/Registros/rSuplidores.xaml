@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-          Title="Registro de Suplidores" Height="326" Width="400">
+          Title="Registro de Suplidores" Height="373" Width="419">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,324" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,48,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Suplidor Id: "/>
                 <StackPanel Orientation="Horizontal" Height="36">
-                    <TextBox x:Name="SuplidorIDTextBox" Width="87" Height="23" Text="{Binding SuplidorId}" />
+                    <TextBox x:Name="SuplidorIDTextBox" Width="87" Height="23" Text="{Binding SuplidorId}" KeyDown="AllTextBox_KeyDown"/>
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top" Width="104">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -25,14 +31,14 @@
                 <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" />
 
                 <Label Content="Telefono: "/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" />
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" MaxLength="10" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Descripcion: "/>
                 <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" />
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" Height="53" Width="378" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

@@ -11,7 +11,7 @@
             <StackPanel Orientation="Vertical">
                 <Label Content="Tipo Habitacion Id: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="TipoHabitacionIdTextBox" Width="87" Height="23" Text="{Binding TipoHabitacionId}" />
+                    <TextBox x:Name="TipoHabitacionIdTextBox" Width="87" Height="23" Text="{Binding TipoHabitacionId}" KeyDown="AllTextBox_KeyDown" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="34"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />

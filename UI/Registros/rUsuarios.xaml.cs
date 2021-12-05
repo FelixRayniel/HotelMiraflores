@@ -26,7 +26,10 @@ namespace HotelMiraflores.UI.Registros
         {
             InitializeComponent();
             this.DataContext = Usuario;
- 
+            Limpiar();
+
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
             RolComboBox.ItemsSource = RolesBLL.GetRoles();
             RolComboBox.SelectedValuePath = "RolId";
             RolComboBox.DisplayMemberPath = "Descripcion";
@@ -54,9 +57,84 @@ namespace HotelMiraflores.UI.Registros
             if (NombreTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese el nombre", "Fallo",
+                MessageBox.Show("Ingrese un nombre", "Fallo",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            if (NombreUsuarioTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un nombre de usuario", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (ClavePasswordBox.Password.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese una contraseña", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (ClavePasswordBox.Password.Length > 0 && ConfirmarClavePasswordBox.Password.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Confirme la contraseña", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (ClavePasswordBox.Password != ConfirmarClavePasswordBox.Password)
+            {
+                esValido = false;
+                MessageBox.Show("La contraseña ingresada no conincide, intente nuevamente", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            }
+
+            if (RolComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un rol para el usuario", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (EmailTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese un email al usuario", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (EmailTextBox.Text.Length > 0 && !Utilidades.ComprobarFormatoEmail(EmailTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Email incorrecto, ingrese un email valido (Example@dominio.com)", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (TelefonoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese numero de telefono", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (TelefonoTextBox.Text.Length > 0 && TelefonoTextBox.Text.Length != 10)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de Telefono incompleto (Debe de tener 10 digitos)", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (DireccionTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese una direccion al usuario", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+
+
+
 
             return esValido;
         }
@@ -72,7 +150,7 @@ namespace HotelMiraflores.UI.Registros
             else
             {
                 Limpiar();
-                MessageBox.Show("NO SE PUDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se puedo encontrar el registro en la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -91,11 +169,11 @@ namespace HotelMiraflores.UI.Registros
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("SE HA GUARDADO EL USUARIO EXISTOSAMENTE", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Se ha guardado el usuario exitosamente", "Existo", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("NO SE PUDO GUARDAR EL USUARIO ", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se pudo guardar el usuario", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -105,16 +183,26 @@ namespace HotelMiraflores.UI.Registros
 
             if (UsuarioEncontrado == null)
             {
-                MessageBox.Show("NO SE PUEDO ENCONTRAR EL REGISTRO EN LA BASE DE DATOS", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No se puedo encontrar el usuario, intente nuevamente!", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             else
             {
                 UsuariosBLL.Eliminar(Usuario.UsuarioId);
-                MessageBox.Show("USUARIO ELIMINADO", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Usuario eliminado", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
                 Limpiar();
             }
 
         }
+
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+
     }
 }

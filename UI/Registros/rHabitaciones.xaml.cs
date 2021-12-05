@@ -28,6 +28,10 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             Limpiar();
 
+            habitacion.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
+
             TipoHabitacionComboBox.ItemsSource = TipoHabitacionesBLL.GettipoHabitaciones();
             TipoHabitacionComboBox.SelectedValuePath = "TipoHabitacionId";
             TipoHabitacionComboBox.DisplayMemberPath = "Descripcion";
@@ -43,7 +47,7 @@ namespace HotelMiraflores.UI.Registros
         public void Cargar()
         {
             this.DataContext = null;
-            this.DataContext = habitacion;
+            this.DataContext = habitacion;  
         }
         private bool Validar()
         {
@@ -151,5 +155,14 @@ namespace HotelMiraflores.UI.Registros
             }
 
         }
+
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
     }
 }

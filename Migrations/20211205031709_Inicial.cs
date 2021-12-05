@@ -46,7 +46,6 @@ namespace HotelMiraflores.Migrations
                     Numero = table.Column<string>(type: "TEXT", nullable: true),
                     Precio = table.Column<float>(type: "REAL", nullable: false),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    Disponibilidad = table.Column<bool>(type: "INTEGER", nullable: false),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -287,17 +286,17 @@ namespace HotelMiraflores.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Clave", "Direccion", "Email", "NombreUsuario", "Nombres", "RolId", "Telefono" },
-                values: new object[] { 1, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "admin", "Profesor", 1, null });
+                values: new object[] { 1, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, null, "admin", "Profesor", 1, null });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Clave", "Direccion", "Email", "NombreUsuario", "Nombres", "RolId", "Telefono" },
-                values: new object[] { 2, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "F.Reynoso", "Felix Reynoso", 1, null });
+                values: new object[] { 2, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, null, "F.Reynoso", "Felix Reynoso", 1, null });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Clave", "Direccion", "Email", "NombreUsuario", "Nombres", "RolId", "Telefono" },
-                values: new object[] { 3, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, "", "P.Canario", "Perla Canario", 1, null });
+                values: new object[] { 3, "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", null, null, "P.Canario", "Perla Canario", 1, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_CompraId",

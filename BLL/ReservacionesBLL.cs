@@ -13,29 +13,34 @@ namespace HotelMiraflores.BLL
     public class ReservacionesBLL
     {
         
-            public static bool Guardar(Reservaciones Reservacion)
-            {
-                if (!Existe(Reservacion.ReservacionId))
+        public static bool Guardar(Reservaciones Reservacion)
+        {
+            if (!Existe(Reservacion.ReservacionId))
                     return Insertar(Reservacion);
                 else
                     return Modificar(Reservacion);
-            }
-            private static bool Insertar(Reservaciones Reservacion)
-            {
-                bool paso = false;
-                Contexto contexto = new Contexto();
+        }
+        private static bool Insertar(Reservaciones Reservacion)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
 
                 try
                 {
-                    contexto.Reservaciones.Add(Reservacion);
+
+                contexto.Reservaciones.Add(Reservacion);
 
                     foreach (var detalle in Reservacion.ReservacionDetalle)
                     {
                         contexto.Entry(detalle.Producto).State = EntityState.Modified;
                         detalle.Producto.CantidadDisponible -= detalle.Cantidad;
-                }
+                        
+                    }
 
-                    paso = contexto.SaveChanges() > 0;
+                    
+
+
+                paso = contexto.SaveChanges() > 0;
                 }
                 catch (Exception)
                 {
@@ -46,8 +51,8 @@ namespace HotelMiraflores.BLL
                     contexto.Dispose();
                 }
                 return paso;
-            }
-            private static bool Modificar(Reservaciones Reservacion)
+        }
+        private static bool Modificar(Reservaciones Reservacion)
             {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -91,29 +96,27 @@ namespace HotelMiraflores.BLL
             }
             return paso;
         }
-            public static bool Eliminar(int id)
-            {
+        public static bool Eliminar(int id)
+        {
                 bool paso = false;
                 Contexto contexto = new Contexto();
 
-                try
-                {
+            try
+            {
                 var Reservacion = ReservacionesBLL.Buscar(id);
 
-                    if (Reservacion != null)
-                    {
+                if (Reservacion != null)
+                {
                     foreach (var detalle in Reservacion.ReservacionDetalle)
                     {
                         detalle.Producto.CantidadDisponible += detalle.Cantidad;
                         contexto.Entry(detalle.Producto).State = EntityState.Modified;
                     }
-                    contexto.Reservaciones.Remove(Reservacion);
+                        contexto.Reservaciones.Remove(Reservacion);
                         paso = contexto.SaveChanges() > 0;
-                    }
-
-                    
-
+                }
             }
+
                 catch (Exception)
                 {
                     throw;
@@ -123,7 +126,7 @@ namespace HotelMiraflores.BLL
                     contexto.Dispose();
                 }
                 return paso;
-            }
+        }
             public static Reservaciones Buscar(int id)
             {
                 Reservaciones Reservacion = new Reservaciones();

@@ -20,14 +20,6 @@ namespace HotelMiraflores.Entidades
         public int RolId { get; set; }
 
 
-        public Usuarios()
-        {
-            UsuarioId = 0;
-            Email = string.Empty;
-            Nombres = string.Empty;
-            NombreUsuario = string.Empty;
-            Clave = string.Empty;
-            RolId = 0;
-        }
+        
     }
 }

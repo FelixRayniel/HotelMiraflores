@@ -36,6 +36,7 @@ namespace HotelMiraflores.UI
 
             if (paso)
             {
+                Utilidades.Usuario = UsuariosBLL.GetUsuario(NombreUsuarioTextBox.Text);
                 this.Close();
                 Principal.Show();
             }

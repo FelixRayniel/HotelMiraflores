@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registros de Productos" Height="557" Width="484">
+        Title="Registros de Productos" Height="637" Width="484">
     <Grid Margin="0,0,0,-6">
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
-            <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="10,10,10,15">
+            <StackPanel Orientation="Vertical" Height="484">
                 <Label Content="Producto ID: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="ProductoIdTextBox" Width="87" Height="23" Text="{Binding ProductoId}" />
+                    <TextBox x:Name="ProductoIdTextBox" Width="87" Height="23" Text="{Binding ProductoId}" KeyDown="AllTextBox_KeyDown"  />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="37"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -22,33 +22,33 @@
 
 
                 <Label Content="Nombre del producto: "/>
-                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="21" Width="292" HorizontalAlignment="Left" />
+                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="28" Width="225" HorizontalAlignment="Left" />
 
                 <Label Content="Suplidor: "/>
-                <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorId}" Width="215" HorizontalAlignment="Left" />
+                <ComboBox x:Name="SuplidorComboBox" SelectedValue="{Binding SuplidorId}" Width="225" HorizontalAlignment="Left" Height="28" />
 
                 <Label Content="Marca: "/>
-                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaId}" Width="226" HorizontalAlignment="Left" />
+                <ComboBox x:Name="MarcasComboBox" SelectedValue="{Binding MarcaId}" Width="225" HorizontalAlignment="Left" Height="28" />
 
                 <Label Content="Departamento: "/>
-                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoId}" Width="226" HorizontalAlignment="Left" />
+                <ComboBox x:Name="DepartamentoComboBox" SelectedValue="{Binding DepartamentoId}" Width="226" HorizontalAlignment="Left" Height="28" />
 
                 <Label Content="Unidad: "/>
-                <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" Height="20" Width="150" HorizontalAlignment="Left" />
+                <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" Height="28" Width="150" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
                 
                 <Label Content="Precio de Costo: "/>
-                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="26" Width="151"  HorizontalAlignment="Left" />
+                <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="28" Width="151"  HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Precio de venta: "/>
-                <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" Height="24" Width="149" HorizontalAlignment="Left" />
+                <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" Height="28" Width="151" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
                 
                 <Label Content="Cantidad: "/>
-                <TextBox x:Name="CantidadDisponibleTextBox" Text="{Binding CantidadDisponible}" Height="27" Width="162" HorizontalAlignment="Left" />
+                <TextBox x:Name="CantidadDisponibleTextBox" Text="{Binding CantidadDisponible}" Height="27" Width="151" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" Height="50" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

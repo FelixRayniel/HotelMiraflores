@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Habitaciones" Height="394" Width="400">
+        Title="Registro de Habitaciones" Height="425" Width="461">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,353" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,37,17,0" >
             <StackPanel Orientation="Vertical">
                 <Label Content="Habitacion Id: "/>
                 <StackPanel Orientation="Horizontal" Height="33">
-                    <TextBox x:Name="HabitacionIDTextBox" Width="87" Height="23" Text="{Binding HabitacionId}" />
+                    <TextBox x:Name="HabitacionIDTextBox" Width="87" Height="23" Text="{Binding HabitacionId}" KeyDown="AllTextBox_KeyDown" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top" Width="112">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -28,19 +34,14 @@
                 <TextBox x:Name="NumeroTextBox" Text="{Binding Numero}" />
 
                 <Label Content="Precio: "/>
-                <TextBox x:Name="PrecioTextBox" Text="{Binding Precio}" />
+                <TextBox x:Name="PrecioTextBox" Text="{Binding Precio}" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Descripcion: "/>
                 <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" />
 
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Esta Ocupada? "/>
-                    <CheckBox IsChecked="{Binding Disponibilidad}" Height="14" />
-                </StackPanel>
-
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" Height="42" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" Height="57" HorizontalAlignment="Center" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

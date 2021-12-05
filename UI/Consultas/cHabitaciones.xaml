@@ -34,24 +34,18 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="274" Width="753" AutoGenerateColumns="False">
+                <DataGrid x:Name="DatosDataGrid" Height="274" Width="693" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Habitacion Id" Binding="{Binding HabitacionId}"/>
                         <DataGridTextColumn Header="Tipo Habitacion Id" Binding="{Binding TipoHabitacionId}"/>
                         <DataGridTextColumn Header="Numero" Binding="{Binding Numero}"/>
                         <DataGridTextColumn Header="Precio" Binding="{Binding Precio}"/>
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
-                        <DataGridTextColumn Header="Disponibilidad" Binding="{Binding hhgh}"/>
-
-
+                        <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
-
-
             </StackPanel>
-
-
 
         </StackPanel>
     </Grid>

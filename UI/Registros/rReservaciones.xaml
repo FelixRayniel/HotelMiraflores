@@ -14,7 +14,7 @@
                 <StackPanel Orientation="Vertical">
                     <Label Content="Reservacion Id: "/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionId}" />
+                        <TextBox x:Name="ReservacionIDTextBox" Width="87" Height="23" Text="{Binding ReservacionId}" KeyDown="AllTextBox_KeyDown" />
                         <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="37"  VerticalContentAlignment="Top" Width="106">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -33,7 +33,7 @@
                         <StackPanel>
                             <Label Content="Numero de Cedula: "/>
                             <StackPanel Orientation="Horizontal" Height="49">
-                                <TextBox x:Name="BuscarCedulaTextBox" Width="166" Height="23"  />
+                                <TextBox x:Name="BuscarCedulaTextBox" Width="166" Height="23" KeyDown="AllTextBox_KeyDown" />
                                 <Button x:Name="BuscarCedulaButton" Margin="5,0" Click="BuscarCedulaButton_Click" Height="37"  VerticalContentAlignment="Top" Width="169">
                                     <StackPanel Orientation="Horizontal">
                                         <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -49,7 +49,7 @@
                     </GroupBox>
 
                     <Label Content="Cantidad de Personas: "/>
-                    <TextBox x:Name="CantidadPersonasTextBox" Text="{Binding CantidadPersonas}" Width="197" HorizontalAlignment="Left" />
+                    <TextBox x:Name="CantidadPersonasTextBox" Text="{Binding CantidadPersonas}" Width="197" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
                     <Label Content="Habitacion: "/>
                     <ComboBox x:Name="HabitacionComboBox" SelectedValue ="{Binding HabitacionId}" Width="474" HorizontalAlignment="Left"  />
@@ -89,7 +89,7 @@
 
                                 <StackPanel Width="103" Height="56" VerticalAlignment="Top" Margin="5,0,0,0">
                                     <Label Content="Cantidad: "/>
-                                    <TextBox x:Name="CantidadTextBox" Text="{Binding ReservacionDetalle.Cantidad}" Height="25"     />
+                                    <TextBox x:Name="CantidadTextBox" Text="{Binding ReservacionDetalle.Cantidad}" Height="25" KeyDown="AllTextBox_KeyDown" />
                                 </StackPanel>
                                 <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="128" VerticalAlignment="Bottom" Height="35">
                                     <StackPanel Orientation="Horizontal">
@@ -132,9 +132,8 @@
 
                         <Label Content=" Total Hospedaje:" Height="26"/>
                         <TextBox x:Name="TotalTextBox" Text="{Binding Total}" Width="150" Height="27" IsReadOnly="True" TextChanged="TotalTextBox_TextChanged" />
-
                         <Label Content=" Descuentos:" Height="24"/>
-                        <TextBox x:Name="DescuentosTextBox" Text="{Binding Descuentos}" Width="150" Height="27" />
+                        <TextBox x:Name="DescuentosTextBox" Text="{Binding Descuentos}" Width="150" Height="27" KeyDown="AllTextBox_KeyDown" />
                         <Button x:Name="DescuentoButton" Margin="5,0" Click="DescuentoButton_Click" Height="37"  VerticalContentAlignment="Top" Width="154">
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Aplicar Descuento" Height="26" Width="128" />

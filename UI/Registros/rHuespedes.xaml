@@ -11,7 +11,7 @@
             <StackPanel Orientation="Vertical">
                 <Label Content="Huesped ID: "/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="HuespedIDTextBox" Width="87" Height="23" Text="{Binding HuespedId}" />
+                    <TextBox x:Name="HuespedIDTextBox" Width="87" Height="23" Text="{Binding HuespedId}" KeyDown="AllTextBox_KeyDown" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="31"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -25,10 +25,10 @@
                 <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" />
 
                 <Label Content="Numero de Cedula: "/>
-                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" />
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Telefono: "/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" />
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}"  MaxLength="10" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Email: "/>
                 <TextBox x:Name="EmailTextBox" Text="{Binding Email}" />

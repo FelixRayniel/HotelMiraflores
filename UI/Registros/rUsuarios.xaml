@@ -6,13 +6,20 @@
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         xmlns:PasswordHelper="clr-namespace:HotelMiraflores.PasswordHelper"
         mc:Ignorable="d"
-       Title="Registro de Usuarios" Height="587" Width="505">
+       Title="Registro de Usuarios" Height="624" Width="516">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,533" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,38,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Usuario Id: "/>
                 <StackPanel Orientation="Horizontal" Height="35">
-                    <TextBox x:Name="UsuarioIDTextBox" Width="87" Height="23" Text="{Binding UsuarioId}" />
+                    <TextBox x:Name="UsuarioIDTextBox" Width="87" Height="23" Text="{Binding UsuarioId}"  KeyDown="AllTextBox_KeyDown" />
                     <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="34"  VerticalContentAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -29,7 +36,7 @@
                 <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}" />
 
                 <Label Content="Contraseña: "/>
-                <PasswordBox x:Name="ClavePasswordBox" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Width="380" HorizontalAlignment="Left"/>     
+                <PasswordBox x:Name="ClavePasswordBox" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Width="380" HorizontalAlignment="Left"/>
 
 
                 <Label Content="Confirmar Contraseña: "/>
@@ -42,14 +49,14 @@
                 <TextBox x:Name="EmailTextBox" Text="{Binding Email}" />
 
                 <Label Content="Telefono: "/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" />
+                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" MaxLength="10" KeyDown="AllTextBox_KeyDown"/>
 
                 <Label Content="Direccion: "/>
                 <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" />
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,15" Width="371" >
+            <StackPanel Orientation="Horizontal" Margin="0,15" Width="382" Height="43" >
                 <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>

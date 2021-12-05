@@ -10,11 +10,11 @@
 
         <ScrollViewer>
 
-            <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Vertical" Margin="10,10,10,10" >
                 <StackPanel Orientation="Vertical">
                     <Label Content="Compra Id: "/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="CompraIdTextBox" Width="87" Height="23" Text="{Binding CompraId}" />
+                        <TextBox x:Name="CompraIdTextBox" Width="87" Height="23" Text="{Binding CompraId}" KeyDown="AllTextBox_KeyDown" />
                         <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click" Height="36"  VerticalContentAlignment="Top" Width="105">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/icons8-google-web-search-24.png" />
@@ -39,8 +39,8 @@
                         <StackPanel>
                             <Label Content="Id de Producto: "/>
                             <StackPanel Orientation="Horizontal" Height="38">
-                                <TextBox x:Name="BuscarProductoTextBox" Width="166" Height="23"  />
-                                <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="34"  VerticalContentAlignment="Top" Width="172">
+                                <TextBox x:Name="BuscarProductoTextBox" Width="166" Height="23" KeyDown="AllTextBox_KeyDown" />
+                                <Button x:Name="BuscarProductoButton" Margin="5,0" Click="BuscarProductoButton_Click" Height="34"  VerticalContentAlignment="Top" Width="172" >
                                     <StackPanel Orientation="Horizontal">
                                         <Image Source="/Resources/icons8-google-web-search-24.png" />
                                         <Label Content="Buscar Producto" />
@@ -51,7 +51,7 @@
                             <ComboBox x:Name="ProductoComboBox" Width="280" HorizontalAlignment="Left" SelectedValue="{Binding ProductoId}"/>
 
                             <Label Content="Cantidad: "/>
-                            <TextBox x:Name="CantidadTextBox" Text="{Binding Cantidad}" Width="197" HorizontalAlignment="Left" />
+                            <TextBox x:Name="CantidadTextBox" Text="{Binding Cantidad}" Width="197" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
                         </StackPanel>
 

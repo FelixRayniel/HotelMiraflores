@@ -75,9 +75,46 @@ namespace HotelMiraflores.UI.Registros
 
         }
 
+        private bool ValidarAgregarButtton()
+        {
+            bool esValido = true;
+
+
+            if (ProductosComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un producto", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (CantidadTextBox.Text.Length == 0 || CantidadTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese la cantidad del producto", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+
+            return esValido ;
+        }
+
+        private bool ValidarEliminarButton()
+        {
+            bool esValido = true ;
+
+            if (DetalleDataGrid.SelectedItem == null )
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un produto para poder eliminarlo", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            return esValido ;   
+        }
+
         private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!ValidarAgregarButtton())
+            {
+                return;
+            }
 
             Reservacion.ReservacionDetalle.Add(new ReservacionesDetalle(
                 Utilidades.ToInt(ReservacionIDTextBox.Text), int.Parse(CantidadTextBox.Text),
@@ -92,6 +129,12 @@ namespace HotelMiraflores.UI.Registros
 
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!ValidarEliminarButton())
+            {
+                return;
+            }
+
             if (DetalleDataGrid.Items.Count >= 1 &&
                 DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
@@ -157,7 +200,7 @@ namespace HotelMiraflores.UI.Registros
             if (HuespedComboBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese un huesped", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Busque o seleccione un huesped", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             if (CantidadPersonasTextBox.Text == "0")
@@ -171,6 +214,15 @@ namespace HotelMiraflores.UI.Registros
                 esValido = false;
                 MessageBox.Show("Pulse el botton Calcular dias para continuar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            if (HabitacionComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione una Habitacion", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            
+            
 
             return esValido;
         }
@@ -271,6 +323,14 @@ namespace HotelMiraflores.UI.Registros
             }
 
             
+        }
+
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
 
 

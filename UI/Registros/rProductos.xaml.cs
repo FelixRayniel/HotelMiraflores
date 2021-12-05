@@ -62,6 +62,55 @@ namespace HotelMiraflores.UI.Registros
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
+            if (SuplidorComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un suplidor", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (MarcasComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione una marca", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (DepartamentoComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un departamento", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (UnidadTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese la cantidad de unidades del producto", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (PrecioCostoTextBox.Text == "0") 
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese el precio costo", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (PrecioVentaTextBox.Text == "0")
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese el precio de venta", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (PrecioCostoTextBox.Text != "0" && PrecioVentaTextBox.Text != "0" && float.Parse(PrecioCostoTextBox.Text) > float.Parse(PrecioVentaTextBox.Text)) 
+            {
+                esValido = false;
+                MessageBox.Show("El precio de costo no puede ser mayor al precio de venta", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             return esValido;
         }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
@@ -119,5 +168,15 @@ namespace HotelMiraflores.UI.Registros
                 Limpiar();
             }
         }
+
+        private void AllTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        
     }
 }

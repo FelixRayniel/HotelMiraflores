@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,19 +24,19 @@ namespace HotelMiraflores.BLL
                 return Modificar(Usuario);
             }
         }
-        private static bool Insertar(Usuarios Usuario)
+        public static bool Insertar(Usuarios Usuario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-
             try
             {
-                //Agregar la entidad que se desea insertar al contexto
-                contexto.Usuarios.Add(Usuario);
-                paso = contexto.SaveChanges() > 0;
+                Usuario.Clave = GetSHA256(Usuario.Clave);
+                if (contexto.Usuarios.Add(Usuario) != null)
+                    paso = (contexto.SaveChanges() > 0);
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
@@ -45,10 +46,12 @@ namespace HotelMiraflores.BLL
 
             return paso;
         }
+
         public static bool Modificar(Usuarios Usuario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            Usuario.Clave = GetSHA256(Usuario.Clave);
 
             try
             {
@@ -57,14 +60,17 @@ namespace HotelMiraflores.BLL
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
+
             return paso;
         }
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -146,23 +152,45 @@ namespace HotelMiraflores.BLL
             }
             return encontrado;
         }
-        public static List<Usuarios> GetUsuario()
+        public static Usuarios GetUsuario(string nombreUsuario)
         {
+
             List<Usuarios> lista = new List<Usuarios>();
             Contexto contexto = new Contexto();
+            Usuarios Usuario = new Usuarios();
+            
+
             try
             {
-                lista = contexto.Usuarios.ToList();
+                lista = contexto.Usuarios.Where(x => x.NombreUsuario == nombreUsuario).ToList();
+                foreach (var item in lista)
+                {
+                    Usuario = item;
+                    break;
+                }
             }
             catch (Exception)
             {
+
                 throw;
             }
             finally
             {
                 contexto.Dispose();
             }
-            return lista;
+            return Usuario;
         }
+
+        private static string GetSHA256(string str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+
     }
 }

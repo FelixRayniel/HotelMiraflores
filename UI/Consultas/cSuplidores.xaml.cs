@@ -21,9 +21,13 @@ namespace HotelMiraflores.UI.Consultas
     /// </summary>
     public partial class cSuplidores : Window
     {
+        private Suplidores suplidor = new Suplidores();
         public cSuplidores()
         {
             InitializeComponent();
+
+            suplidor.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

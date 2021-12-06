@@ -21,9 +21,13 @@ namespace HotelMiraflores.UI.Consultas
     /// </summary>
     public partial class cReservaciones : Window
     {
+        private Reservaciones Reservacion = new Reservaciones();
         public cReservaciones()
         {
             InitializeComponent();
+
+            Reservacion.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

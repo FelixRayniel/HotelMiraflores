@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Consuta de Tipo de Habitaciones" Height="350" Width="584">
     <Grid>
+
+        <StackPanel Orientation="Horizontal" Margin="0,11,10,297" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
         <StackPanel Orientation="Vertical" Margin="10,10,0,0">
             <StackPanel Orientation="Horizontal" Height="61">
                 <StackPanel Margin="5,0">

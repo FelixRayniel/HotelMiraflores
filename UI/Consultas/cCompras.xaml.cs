@@ -21,9 +21,13 @@ namespace HotelMiraflores.UI.Consultas
     /// </summary>
     public partial class cCompras : Window
     {
+        private Compras compras = new Compras();
         public cCompras()
         {
             InitializeComponent();
+
+            compras.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

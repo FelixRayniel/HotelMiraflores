@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Registro de Huespedes" Height="427" Width="400">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+        <StackPanel Orientation="Horizontal" Margin="184,10,0,359" HorizontalAlignment="Left">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,38,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Huesped ID: "/>
                 <StackPanel Orientation="Horizontal">

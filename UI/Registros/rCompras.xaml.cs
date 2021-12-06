@@ -27,6 +27,9 @@ namespace HotelMiraflores.UI.Registros
             InitializeComponent();
             Limpiar();
 
+            compras.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
             SuplidorComboBox.ItemsSource = SuplidoresBLL.GetSuplidores();
             SuplidorComboBox.SelectedValuePath = "SuplidorId";
             SuplidorComboBox.DisplayMemberPath = "Nombre";
@@ -40,6 +43,9 @@ namespace HotelMiraflores.UI.Registros
             this.compras = new Compras();
             this.DataContext = compras;
             BuscarProductoTextBox.Text = null;
+
+            compras.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         public void Cargar()
@@ -47,6 +53,8 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             this.DataContext = compras;
 
+            compras.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Registros de Productos" Height="637" Width="484">
     <Grid Margin="0,0,0,-6">
-        <StackPanel Orientation="Vertical" Margin="10,10,10,15">
+
+        <StackPanel Orientation="Horizontal" Margin="242,7,0,586" HorizontalAlignment="Left">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,27,10,15">
             <StackPanel Orientation="Vertical" Height="484">
                 <Label Content="Producto ID: "/>
                 <StackPanel Orientation="Horizontal">
@@ -36,13 +42,13 @@
                 <Label Content="Unidad: "/>
                 <TextBox x:Name="UnidadTextBox" Text="{Binding Unidad}" Height="28" Width="150" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
-                
+
                 <Label Content="Precio de Costo: "/>
                 <TextBox x:Name="PrecioCostoTextBox" Text="{Binding PrecioCosto}" Height="28" Width="151"  HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 
                 <Label Content="Precio de venta: "/>
                 <TextBox x:Name="PrecioVentaTextBox" Text="{Binding PrecioVenta}" Height="28" Width="151" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
-                
+
                 <Label Content="Cantidad: "/>
                 <TextBox x:Name="CantidadDisponibleTextBox" Text="{Binding CantidadDisponible}" Height="27" Width="151" HorizontalAlignment="Left" KeyDown="AllTextBox_KeyDown" />
 

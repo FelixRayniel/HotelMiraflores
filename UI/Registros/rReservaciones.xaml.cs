@@ -27,6 +27,9 @@ namespace HotelMiraflores.UI.Registros
             InitializeComponent();
             Limpiar();
 
+            Reservacion.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
             HuespedComboBox.ItemsSource = HuespedesBLL.GetHuespedes();
             HuespedComboBox.SelectedValuePath = "HuespedId";
             HuespedComboBox.DisplayMemberPath = "Nombres";
@@ -39,8 +42,6 @@ namespace HotelMiraflores.UI.Registros
             ProductosComboBox.SelectedValuePath = "ProductoId";
             ProductosComboBox.DisplayMemberPath = "Descripcion";
 
-
-
         }
 
         public void Limpiar()
@@ -48,6 +49,9 @@ namespace HotelMiraflores.UI.Registros
             this.Reservacion = new Reservaciones();
             this.DataContext = Reservacion;
             BuscarCedulaTextBox.Text = null;
+
+            Reservacion.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         public void Cargar()
@@ -55,6 +59,8 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             this.DataContext = Reservacion;
 
+            Reservacion.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

@@ -28,6 +28,9 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             Limpiar();
 
+            producto.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
+
             MarcasComboBox.ItemsSource = MarcasBLL.GetMarcas();
             MarcasComboBox.SelectedValuePath = "MarcaId";
             MarcasComboBox.DisplayMemberPath = "Descripcion";
@@ -44,12 +47,18 @@ namespace HotelMiraflores.UI.Registros
         {
             this.producto = new Productos();
             this.DataContext = producto;
+
+            producto.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         public void Cargar()
         {
             this.DataContext = null;
             this.DataContext = producto;
+
+            producto.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
         private bool Validar()
         {

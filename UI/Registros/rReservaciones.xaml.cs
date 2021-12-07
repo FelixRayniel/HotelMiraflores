@@ -55,6 +55,7 @@ namespace HotelMiraflores.UI.Registros
             this.DataContext = null;
             this.DataContext = Reservacion;
 
+
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

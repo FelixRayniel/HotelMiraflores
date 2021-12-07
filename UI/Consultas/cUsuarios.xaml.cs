@@ -24,6 +24,8 @@ namespace HotelMiraflores.UI.Consultas
         public cUsuarios()
         {
             InitializeComponent();
+
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

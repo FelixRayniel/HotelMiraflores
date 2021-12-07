@@ -21,9 +21,13 @@ namespace HotelMiraflores.UI.Consultas
     /// </summary>
     public partial class cCompras : Window
     {
+        private Compras compras = new Compras();
         public cCompras()
         {
             InitializeComponent();
+
+            compras.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
@@ -51,8 +55,21 @@ namespace HotelMiraflores.UI.Consultas
                 listado = ComprasBLL.GetList(p => true);
             }
 
+            if (DesdeDataPicker.SelectedDate != null)
+                listado = ComprasBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
+
+            if (HastaDatePicker.SelectedDate != null)
+                listado = ComprasBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+
+            var conteo = listado.Count();
+            ConteoTextBox.Text = conteo.ToString();
+
+
+            var monto = listado.Sum(x => x.TotalCompra);
+            TotalTextBox.Text = monto.ToString("N2"); 
         }
     }
 }

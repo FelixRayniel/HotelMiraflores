@@ -21,6 +21,7 @@ namespace HotelMiraflores.Entidades
         public float PrecioCosto { get; set; }
         public float PrecioVenta { get; set; }
         public int CantidadDisponible { get; set; }
+        public int UsuarioId { get; set; }
 
     }
 }

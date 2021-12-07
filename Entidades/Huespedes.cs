@@ -16,5 +16,6 @@ namespace HotelMiraflores.Entidades
         public string Email { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

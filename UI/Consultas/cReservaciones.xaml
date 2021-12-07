@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Consulta de Reservaciones" Height="724" Width="1666" WindowState="Maximized">
     <Grid>
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,240,635" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
             <StackPanel Orientation="Horizontal" Height="58">

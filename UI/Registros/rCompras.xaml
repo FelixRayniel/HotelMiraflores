@@ -8,7 +8,12 @@
         Title="Registro de Compras" Height="824" Width="600">
     <Grid>
 
-        <ScrollViewer>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,748" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <ScrollViewer Margin="0,29,0,10">
 
             <StackPanel Orientation="Vertical" Margin="10,10,10,10" >
                 <StackPanel Orientation="Vertical">

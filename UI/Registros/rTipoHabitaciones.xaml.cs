@@ -27,17 +27,26 @@ namespace HotelMiraflores.UI.Registros
             InitializeComponent();
             this.DataContext = null;
             Limpiar();
+
+            tipoHabitaciones.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
         private void Limpiar()
         {
             this.tipoHabitaciones = new TipoHabitaciones();
             this.DataContext = tipoHabitaciones;
+
+            tipoHabitaciones.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         public void Cargar()
         {
             this.DataContext = null;
             this.DataContext = tipoHabitaciones;
+
+            tipoHabitaciones.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
         private bool Validar()
         {

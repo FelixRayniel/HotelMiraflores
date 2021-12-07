@@ -21,9 +21,13 @@ namespace HotelMiraflores.UI.Consultas
     /// </summary>
     public partial class cTipoHabitaciones : Window
     {
+        private TipoHabitaciones tipoHabitaciones = new TipoHabitaciones();
         public cTipoHabitaciones()
         {
             InitializeComponent();
+
+            tipoHabitaciones.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)

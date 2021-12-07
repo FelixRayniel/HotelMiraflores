@@ -37,12 +37,18 @@ namespace HotelMiraflores.UI.Registros
         {
             this.suplidor = new Suplidores();
             this.DataContext = suplidor;
+
+            suplidor.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
 
         public void Cargar()
         {
             this.DataContext = null;
             this.DataContext = suplidor;
+
+            suplidor.UsuarioId = Utilidades.Usuario.UsuarioId;
+            UsuarioTextBlock.Text = Utilidades.Usuario.NombreUsuario;
         }
         private bool Validar()
         {

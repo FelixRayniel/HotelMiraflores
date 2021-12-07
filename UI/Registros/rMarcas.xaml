@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Registro de Marcas" Height="226" Width="400">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+
+        <StackPanel Orientation="Horizontal" Margin="175,10,0,182" HorizontalAlignment="Left">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Margin="10,28,10,10">
             <StackPanel Orientation="Vertical">
                 <Label Content="Marca ID: "/>
                 <StackPanel Orientation="Horizontal">
@@ -47,5 +53,5 @@
             </StackPanel>
         </StackPanel>
     </Grid>
-  
+
 </Window>

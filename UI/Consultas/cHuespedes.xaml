@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Consulta de Huespedes" Height="450" Width="800">
     <Grid>
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,42,389" HorizontalAlignment="Right">
+            <Label Content="Usuario: " Height="26" FontFamily="Arial Black" FontSize="14"/>
+            <TextBlock x:Name="UsuarioTextBlock" Width="130" Height="24" FontSize="14" />
+        </StackPanel>
+
         <StackPanel Orientation="Vertical" Margin="10,10,0,0">
             <StackPanel Orientation="Horizontal" Height="68">
                 <StackPanel Margin="5,0">

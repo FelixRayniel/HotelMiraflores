@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211205031709_Inicial")]
+    [Migration("20211207005732_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,6 +147,9 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("HuespedId");
 
                     b.ToTable("Huespedes");
@@ -160,6 +163,9 @@ namespace HotelMiraflores.Migrations
 
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("MarcaId");
 
@@ -194,6 +200,9 @@ namespace HotelMiraflores.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Unidad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ProductoId");
@@ -339,6 +348,9 @@ namespace HotelMiraflores.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("TipoHabitacionId");
 
                     b.ToTable("TipoHabitaciones");
@@ -347,17 +359,20 @@ namespace HotelMiraflores.Migrations
                         new
                         {
                             TipoHabitacionId = 1,
-                            Descripcion = "Sencilla"
+                            Descripcion = "Sencilla",
+                            UsuarioId = 0
                         },
                         new
                         {
                             TipoHabitacionId = 2,
-                            Descripcion = "Double"
+                            Descripcion = "Double",
+                            UsuarioId = 0
                         },
                         new
                         {
                             TipoHabitacionId = 3,
-                            Descripcion = "Triple"
+                            Descripcion = "Triple",
+                            UsuarioId = 0
                         });
                 });
 

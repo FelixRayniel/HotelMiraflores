@@ -63,7 +63,8 @@ namespace HotelMiraflores.Migrations
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
-                    Telefono = table.Column<string>(type: "TEXT", nullable: true)
+                    Telefono = table.Column<string>(type: "TEXT", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,7 +77,8 @@ namespace HotelMiraflores.Migrations
                 {
                     MarcaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,7 +98,8 @@ namespace HotelMiraflores.Migrations
                     Unidad = table.Column<int>(type: "INTEGER", nullable: false),
                     PrecioCosto = table.Column<float>(type: "REAL", nullable: false),
                     PrecioVenta = table.Column<float>(type: "REAL", nullable: false),
-                    CantidadDisponible = table.Column<int>(type: "INTEGER", nullable: false)
+                    CantidadDisponible = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -163,7 +166,8 @@ namespace HotelMiraflores.Migrations
                 {
                     TipoHabitacionId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true)
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -270,18 +274,18 @@ namespace HotelMiraflores.Migrations
 
             migrationBuilder.InsertData(
                 table: "TipoHabitaciones",
-                columns: new[] { "TipoHabitacionId", "Descripcion" },
-                values: new object[] { 1, "Sencilla" });
+                columns: new[] { "TipoHabitacionId", "Descripcion", "UsuarioId" },
+                values: new object[] { 1, "Sencilla", 0 });
 
             migrationBuilder.InsertData(
                 table: "TipoHabitaciones",
-                columns: new[] { "TipoHabitacionId", "Descripcion" },
-                values: new object[] { 2, "Double" });
+                columns: new[] { "TipoHabitacionId", "Descripcion", "UsuarioId" },
+                values: new object[] { 2, "Double", 0 });
 
             migrationBuilder.InsertData(
                 table: "TipoHabitaciones",
-                columns: new[] { "TipoHabitacionId", "Descripcion" },
-                values: new object[] { 3, "Triple" });
+                columns: new[] { "TipoHabitacionId", "Descripcion", "UsuarioId" },
+                values: new object[] { 3, "Triple", 0 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",

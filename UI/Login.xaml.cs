@@ -52,5 +52,13 @@ namespace HotelMiraflores.UI
         {
             Application.Current.Shutdown();
         }
+
+        private void ContrasenaPasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                IngresarButton_Click(sender, e);
+            }
+        }
     }
 }

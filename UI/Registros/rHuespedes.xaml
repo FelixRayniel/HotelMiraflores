@@ -31,7 +31,7 @@
                 <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" />
 
                 <Label Content="Numero de Cedula: "/>
-                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" KeyDown="AllTextBox_KeyDown" />
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" KeyDown="AllTextBox_KeyDown" MaxLength="11" />
 
                 <Label Content="Telefono: "/>
                 <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}"  MaxLength="10" KeyDown="AllTextBox_KeyDown" />

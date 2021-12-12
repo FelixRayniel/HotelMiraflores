@@ -66,6 +66,13 @@ namespace HotelMiraflores.UI.Registros
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
+            if (CedulaTextBox.Text.Length > 0 && CedulaTextBox.Text.Length != 11)
+            {
+                esValido = false;
+                MessageBox.Show("Numero de Telefono incompleto (Debe de tener 10 digitos)", "Fallo",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             if (TelefonoTextBox.Text.Length == 0)
             {
                 esValido = false;

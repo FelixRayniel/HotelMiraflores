@@ -59,6 +59,14 @@ namespace HotelMiraflores.UI.Consultas
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+
+            var conteo = listado.Count();
+            ConteoTextBox.Text = conteo.ToString();
+
+
+            var monto = listado.Sum(x => x.TotalGeneral);
+            TotalTextBox.Text = monto.ToString("N2");
+
         }
     }
     

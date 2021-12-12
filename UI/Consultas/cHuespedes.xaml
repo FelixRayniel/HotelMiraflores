@@ -20,7 +20,6 @@
                     <ComboBox x:Name="FiltroComboBox" Width="100" Height="25">
                         <ComboBoxItem Content="Todo"/>
                         <ComboBoxItem Content="Cedula"/>
-                        <ComboBoxItem Content="Huesped ID"/>
                     </ComboBox>
                 </StackPanel>
 
@@ -47,6 +46,7 @@
                         <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
                         <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}"/>
+                        <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

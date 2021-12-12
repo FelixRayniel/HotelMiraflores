@@ -42,6 +42,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Tipo Habitacion Id" Binding="{Binding TipoHabitacionId}" />
                         <DataGridTextColumn Header="Descripcion" Binding="{Binding Descripcion}"/>
+                        <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

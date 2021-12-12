@@ -39,7 +39,7 @@
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Left">
-                <DataGrid x:Name="DatosDataGrid" Height="271" Width="970" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Productos}">
+                <DataGrid x:Name="DatosDataGrid" Height="271" Width="1015" AutoGenerateColumns="False" IsEnabled="False" ItemsSource="{Binding Productos}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Producto ID" Binding="{Binding ProductoId}" />
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Descripcion}" />
@@ -50,6 +50,7 @@
                         <DataGridTextColumn Header="Precio de costo" Binding="{Binding PrecioCosto}"/>
                         <DataGridTextColumn Header="Precio de venta" Binding="{Binding PrecioVenta}"/>
                         <DataGridTextColumn Header="Cantidad Disponible" Binding="{Binding CantidadDisponible}"/>
+                        <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

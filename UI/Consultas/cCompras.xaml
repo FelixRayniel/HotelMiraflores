@@ -57,6 +57,7 @@
                         <DataGridTextColumn Header="Producto" Binding="{Binding ProductoId}" />
                         <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
                         <DataGridTextColumn Header="Total" Binding="{Binding SubtotalCompra}"/>
+                        <DataGridTextColumn Header="Usuario Id" Binding="{Binding UsuarioId}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

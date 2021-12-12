@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelMiraflores.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211207005732_Inicial")]
+    [Migration("20211212150248_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

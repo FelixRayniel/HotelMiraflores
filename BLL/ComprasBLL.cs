@@ -60,6 +60,7 @@ namespace HotelMiraflores.BLL
 
                 foreach (var detalle in CompraAnterior.ComprasDetalle)
                 {
+                    detalle.Producto = contexto.Productos.Find(detalle.ProductoId);
                     detalle.Producto.CantidadDisponible -= detalle.Cantidad;
 
                 }
@@ -68,9 +69,14 @@ namespace HotelMiraflores.BLL
 
                 foreach(var item in compras.ComprasDetalle)
                 {
-                    contexto.Entry(item).State = EntityState.Added;
-                    contexto.Entry(item.Producto).State = EntityState.Modified;
+
+                    item.Producto = contexto.Productos.Find(item.ProductoId);
                     item.Producto.CantidadDisponible += item.Cantidad;
+
+                    contexto.Entry(item.Producto).State = EntityState.Modified;
+                    contexto.Entry(item).State = EntityState.Added;
+                    
+                    
                 }
 
                 contexto.Entry(compras).State = EntityState.Modified;

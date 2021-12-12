@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         xmlns:PasswordHelper="clr-namespace:HotelMiraflores.PasswordHelper"
         mc:Ignorable="d"
-       Title="Registro de Usuarios" Height="624" Width="516">
+       Title="Registro de Usuarios" Height="624" Width="516" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" >
     <Grid>
 
 

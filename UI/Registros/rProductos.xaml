@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registros de Productos" Height="637" Width="484">
+        Title="Registros de Productos" Height="661" Width="484" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Margin="0,0,0,-6">
 
         <StackPanel Orientation="Horizontal" Margin="242,7,0,586" HorizontalAlignment="Left">

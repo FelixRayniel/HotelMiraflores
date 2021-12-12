@@ -7,6 +7,7 @@
          xmlns:PasswordHelper="clr-namespace:HotelMiraflores.PasswordHelper"
         mc:Ignorable="d"
         Title="Login" 
+        ResizeMode="CanMinimize"
         Height="210" Width="300"
         WindowStartupLocation="CenterScreen">
     <Grid>

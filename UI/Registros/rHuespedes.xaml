@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Huespedes" Height="427" Width="400">
+        Title="Registro de Huespedes" Height="446" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
 
         <StackPanel Orientation="Horizontal" Margin="184,10,0,359" HorizontalAlignment="Left">

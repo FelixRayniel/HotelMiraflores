@@ -67,7 +67,8 @@ namespace HotelMiraflores.BLL
 
                 foreach (var detalle in ReservacionAnterior.ReservacionDetalle)
                 {
-                   detalle.Producto.CantidadDisponible += detalle.Cantidad;
+                    detalle.Producto = contexto.Productos.Find(detalle.ProductoId);
+                    detalle.Producto.CantidadDisponible += detalle.Cantidad;
                     
                 }
 
@@ -75,12 +76,14 @@ namespace HotelMiraflores.BLL
 
                 foreach (var item in Reservacion.ReservacionDetalle)
                 {
-                    contexto.Entry(item).State = EntityState.Added;
+
+                    item.Producto = contexto.Productos.Find(item.ProductoId);
                     item.Producto.CantidadDisponible -= item.Cantidad;
-                    
-                   
-                    
-                    
+                    contexto.Entry(item.Producto).State = EntityState.Modified;
+                    contexto.Entry(item).State = EntityState.Added;
+
+
+
                 }
 
                 contexto.Entry(Reservacion).State = EntityState.Modified;

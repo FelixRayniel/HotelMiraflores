@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelMiraflores.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Marcas" Height="226" Width="400">
+        Title="Registro de Marcas" Height="266" Width="408" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" >
     <Grid>
 
         <StackPanel Orientation="Horizontal" Margin="175,10,0,182" HorizontalAlignment="Left">
